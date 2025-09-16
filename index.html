@@ -1,975 +1,617 @@
-
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="fa" dir="rtl">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Bolby - Portfolio/CV/Resume HTML Template</title>
-	<meta name="description" content="Bolby - Portfolio/CV/Resume HTML Template">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="https://jthemes.net/themes/html/bolby/demo/images/favicon.png">
-
-	<!-- STYLESHEETS -->
-	<link rel="stylesheet" href="https://jthemes.net/themes/html/bolby/demo/css/bootstrap.min.css" type="text/css" media="all">
-	<link rel="stylesheet" href="https://jthemes.net/themes/html/bolby/demo/css/all.min.css" type="text/css" media="all">
-	<link rel="stylesheet" href="https://jthemes.net/themes/html/bolby/demo/css/simple-line-icons.css" type="text/css" media="all">
-	<link rel="stylesheet" href="https://jthemes.net/themes/html/bolby/demo/css/slick.css" type="text/css" media="all">
-	<link rel="stylesheet" href="https://jthemes.net/themes/html/bolby/demo/css/animate.css" type="text/css" media="all">
-	<link rel="stylesheet" href="https://jthemes.net/themes/html/bolby/demo/css/magnific-popup.css" type="text/css" media="all">
-	<link rel="stylesheet" href="https://jthemes.net/themes/html/bolby/demo/css/style.css" type="text/css" media="all">
-
-	<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزومه محمد جواد قهرمانی</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: #f5f5f5;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #fbd22b, #f1c40f);
+            padding: 40px;
+            color: #333;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(0,0,0,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(0,0,0,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(0,0,0,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.8);
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .profile-info h2 {
+            font-size: 1.4em;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .basic-info {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .basic-info span {
+            background: rgba(255,255,255,0.9);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+        
+        .sidebar {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 30px;
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fbd22b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .main-content .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #fbd22b;
+            padding-bottom: 10px;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+        
+        .contact-item a {
+            color: #fbd22b;
+            text-decoration: none;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-fill {
+            height: 100%;
+            background: #fbd22b;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .experience-item, .education-item, .project-item, .certificate-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-right: 4px solid #fbd22b;
+        }
+        
+        .experience-item h3, .education-item h3, .project-item h3, .certificate-item h3 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+        
+        .company, .institution {
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .date {
+            color: #999;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .description ul {
+            padding-right: 20px;
+        }
+        
+        .description li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .about-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .about-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .language-skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .language-item {
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+        
+        .language-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .language-level {
+            font-size: 0.9em;
+            color: #fbd22b;
+        }
+        
+        .honors-list {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            padding: 20px;
+            border-radius: 10px;
+            color: #856404;
+        }
+        
+        .honor-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+        }
+        
+        .honor-icon {
+            width: 30px;
+            height: 30px;
+            background: #fbd22b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .language-skills {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            font-size: 0.9em;
+        }
+        
+        .footer a {
+            color: #fbd22b;
+            text-decoration: none;
+        }
+        
+        /* Icons using CSS */
+        .icon::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-left: 8px;
+        }
+        
+        .icon-user::before { content: '👤'; }
+        .icon-phone::before { content: '📱'; }
+        .icon-email::before { content: '✉️'; }
+        .icon-skills::before { content: '🛠️'; }
+        .icon-education::before { content: '🎓'; }
+        .icon-work::before { content: '💼'; }
+        .icon-project::before { content: '🚀'; }
+        .icon-certificate::before { content: '📜'; }
+        .icon-language::before { content: '🌐'; }
+        .icon-award::before { content: '🏆'; }
+    </style>
 </head>
-
 <body>
-
-<!-- Preloader -->
-<div id="preloader" class="light">
-	<div class="outer">
-		<!-- Google Chrome -->
-		<div class="infinityChrome">
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-
-		<!-- Safari and others -->
-		<div class="infinity">
-			<div>
-				<span></span>
-			</div>
-			<div>
-				<span></span>
-			</div>
-			<div>
-				<span></span>
-			</div>
-		</div>
-		<!-- Stuff -->
-		<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="goo-outer">
-			<defs>
-				<filter id="goo">
-					<feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
-					<feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-					<feBlend in="SourceGraphic" in2="goo" />
-				</filter>
-			</defs>
-		</svg>
-	</div>
-</div>
-
-<!-- mobile header -->
-<header class="mobile-header-1 light">
-	<div class="container">
-		<!-- menu icon -->
-		<div class="menu-icon d-inline-flex mr-4">
-			<button>
-				<span></span>
-			</button>
-		</div>
-		<!-- logo image -->
-		<div class="site-logo">
-			<a href="https://jthemes.net/themes/html/bolby/demo/index-light.html">
-				<img src="https://jthemes.net/themes/html/bolby/demo/images/logo-dark.svg" alt="Bolby" />
-			</a>
-		</div>
-	</div>
-</header>
-
-<!-- desktop header -->
-<header class="desktop-header-1 light d-flex align-items-start flex-column">
-	
-	<!-- logo image -->
-	<div class="site-logo">
-		<a href="https://jthemes.net/themes/html/bolby/demo/index-light.html">
-			<img src="https://jthemes.net/themes/html/bolby/demo/images/logo-dark.svg" alt="Bolby" />
-		</a>
-	</div>
-	
-	<!-- main menu -->
-	<nav>
-		<ul class="vertical-menu scrollspy">
-			<li class="active"><a href="#home"><i class="icon-home"></i>Home</a></li>
-			<li><a href="#about"><i class="icon-user-following"></i>About</a></li>
-			<li><a href="#services"><i class="icon-briefcase"></i>Services</a></li>
-			<li><a href="#experience"><i class="icon-graduation"></i>Experience</a></li>
-			<li><a href="#works"><i class="icon-layers"></i>Works</a></li>
-			<li><a href="#blog"><i class="icon-note"></i>Blog</a></li>
-			<li><a href="#contact"><i class="icon-bubbles"></i>Contact</a></li>
-		</ul>
-	</nav>
-	
-	<!-- site footer -->
-	<div class="footer">
-		<!-- copyright text -->
-		<span class="copyright">© 2020 Bolby Template.</span>
-	</div>
-
-</header>
-
-<!-- main layout -->
-<main class="content">
-	
-	<!-- section home -->
-	<section id="home" class="home d-flex light align-items-center">
-		<div class="container">
-
-			<!-- intro -->
-			<div class="intro">
-				<!-- avatar image -->
-				<img src="https://jthemes.net/themes/html/bolby/demo/images/avatar-1.svg" alt="Bolby" class="mb-4" />
-
-				<!-- info -->
-				<h1 class="mb-2 mt-0">Bolby Doe</h1>
-				<span>I'm a <span class="text-rotating">UI/UX designer, Front-End developer, Photography lover</span></span>
-
-				<!-- social icons -->
-				<ul class="social-icons light list-inline mb-0 mt-4">
-					<li class="list-inline-item"><a href="https://jthemes.net/themes/html/bolby/demo/#"><i class="fab fa-instagram"></i></a></li>
-					<li class="list-inline-item"><a href="https://jthemes.net/themes/html/bolby/demo/#"><i class="fab fa-twitter"></i></a></li>
-					<li class="list-inline-item"><a href="https://jthemes.net/themes/html/bolby/demo/#"><i class="fab fa-behance"></i></a></li>
-					<li class="list-inline-item"><a href="https://jthemes.net/themes/html/bolby/demo/#"><i class="fab fa-dribbble"></i></a></li>
-					<li class="list-inline-item"><a href="https://jthemes.net/themes/html/bolby/demo/#"><i class="fab fa-pinterest-p"></i></a></li>
-				</ul>
-
-				<!-- buttons -->
-				<div class="mt-4">
-					<a href="#contact" class="btn btn-default">Hire me</a>
-				</div>
-			</div>
-			
-			<!-- scroll down mouse wheel -->
-			<div class="scroll-down light">
-				<a href="#about" class="mouse-wrapper">
-					<span>Scroll Down</span>
-					<span class="mouse">
-						<span class="wheel"></span>
-					</span>
-				</a>
-			</div>
-
-			<!-- parallax layers -->
-			<div class="parallax" data-relative-input="true">
-
-				<svg width="27" height="29" data-depth="0.3" class="layer p1" xmlns="http://www.w3.org/2000/svg"><path d="M21.15625.60099c4.37954 3.67487 6.46544 9.40612 5.47254 15.03526-.9929 5.62915-4.91339 10.30141-10.2846 12.25672-5.37122 1.9553-11.3776.89631-15.75715-2.77856l2.05692-2.45134c3.50315 2.93948 8.3087 3.78663 12.60572 2.22284 4.297-1.5638 7.43381-5.30209 8.22768-9.80537.79387-4.50328-.8749-9.08872-4.37803-12.02821L21.15625.60099z" fill="#FFD15C" fill-rule="evenodd"/></svg>
-
-				<svg width="26" height="26" data-depth="0.2" class="layer p2" xmlns="http://www.w3.org/2000/svg"><path d="M13 3.3541L2.42705 24.5h21.1459L13 3.3541z" stroke="#FF4C60" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
-
-				<svg width="30" height="25" data-depth="0.3" class="layer p3" xmlns="http://www.w3.org/2000/svg"><path d="M.1436 8.9282C3.00213 3.97706 8.2841.92763 14.00013.92796c5.71605.00032 10.9981 3.04992 13.85641 8 2.8583 4.95007 2.8584 11.0491-.00014 16.00024l-2.77128-1.6c2.28651-3.96036 2.28631-8.84002.00011-12.8002-2.2862-3.96017-6.5124-6.40017-11.08513-6.4-4.57271.00018-8.79872 2.43984-11.08524 6.4002l-2.77128-1.6z" fill="#44D7B6" fill-rule="evenodd"/></svg>
-
-				<svg width="15" height="23" data-depth="0.6" class="layer p4" xmlns="http://www.w3.org/2000/svg"><rect transform="rotate(30 9.86603 10.13397)" x="7" width="3" height="25" rx="1.5" fill="#FFD15C" fill-rule="evenodd"/></svg>
-
-				<svg width="15" height="23" data-depth="0.2" class="layer p5" xmlns="http://www.w3.org/2000/svg"><rect transform="rotate(30 9.86603 10.13397)" x="7" width="3" height="25" rx="1.5" fill="#6C6CE5" fill-rule="evenodd"/></svg>
-
-				<svg width="49" height="17" data-depth="0.5" class="layer p6" xmlns="http://www.w3.org/2000/svg"><g fill="#FF4C60" fill-rule="evenodd"><path d="M.5 16.5c0-5.71709 2.3825-10.99895 6.25-13.8567 3.8675-2.85774 8.6325-2.85774 12.5 0C23.1175 5.50106 25.5 10.78292 25.5 16.5H23c0-4.57303-1.90625-8.79884-5-11.08535-3.09375-2.28652-6.90625-2.28652-10 0C4.90625 7.70116 3 11.92697 3 16.5H.5z"/><path d="M23.5 16.5c0-5.71709 2.3825-10.99895 6.25-13.8567 3.8675-2.85774 8.6325-2.85774 12.5 0C46.1175 5.50106 48.5 10.78292 48.5 16.5H46c0-4.57303-1.90625-8.79884-5-11.08535-3.09375-2.28652-6.90625-2.28652-10 0-3.09375 2.28651-5 6.51232-5 11.08535h-2.5z"/></g></svg>
-
-				<svg width="26" height="26" data-depth="0.4" class="layer p7" xmlns="http://www.w3.org/2000/svg"><path d="M13 22.6459L2.42705 1.5h21.1459L13 22.6459z" stroke="#FFD15C" stroke-width="3" fill="none" fill-rule="evenodd"/></svg>
-
-				<svg width="19" height="21" data-depth="0.3" class="layer p8" xmlns="http://www.w3.org/2000/svg"><rect transform="rotate(-40 6.25252 10.12626)" x="7" width="3" height="25" rx="1.5" fill="#6C6CE5" fill-rule="evenodd"/></svg>
-
-				<svg width="30" height="25" data-depth="0.3" data-depth-y="-1.30" class="layer p9" xmlns="http://www.w3.org/2000/svg"><path d="M29.8564 16.0718c-2.85854 4.95114-8.1405 8.00057-13.85654 8.00024-5.71605-.00032-10.9981-3.04992-13.85641-8-2.8583-4.95007-2.8584-11.0491.00014-16.00024l2.77128 1.6c-2.28651 3.96036-2.28631 8.84002-.00011 12.8002 2.2862 3.96017 6.5124 6.40017 11.08513 6.4 4.57271-.00018 8.79872-2.43984 11.08524-6.4002l2.77128 1.6z" fill="#6C6CE5" fill-rule="evenodd"/></svg>
-
-				<svg width="47" height="29" data-depth="0.2" class="layer p10" xmlns="http://www.w3.org/2000/svg"><g fill="#44D7B6" fill-rule="evenodd"><path d="M46.78878 17.19094c-1.95535 5.3723-6.00068 9.52077-10.61234 10.8834-4.61167 1.36265-9.0893-.26708-11.74616-4.27524-2.65686-4.00817-3.08917-9.78636-1.13381-15.15866l2.34923.85505c-1.56407 4.29724-1.2181 8.92018.90705 12.12693 2.12514 3.20674 5.70772 4.5107 9.39692 3.4202 3.68921-1.0905 6.92581-4.40949 8.48988-8.70673l2.34923.85505z"/><path d="M25.17585 9.32448c-1.95535 5.3723-6.00068 9.52077-10.61234 10.8834-4.61167 1.36264-9.0893-.26708-11.74616-4.27525C.16049 11.92447-.27182 6.14628 1.68354.77398l2.34923.85505c-1.56407 4.29724-1.2181 8.92018.90705 12.12692 2.12514 3.20675 5.70772 4.5107 9.39692 3.4202 3.68921-1.0905 6.92581-4.40948 8.48988-8.70672l2.34923.85505z"/></g></svg>
-
-				<svg width="33" height="20" data-depth="0.5" class="layer p11" xmlns="http://www.w3.org/2000/svg"><path d="M32.36774.34317c.99276 5.63023-1.09332 11.3614-5.47227 15.03536-4.37895 3.67396-10.3855 4.73307-15.75693 2.77837C5.76711 16.2022 1.84665 11.53014.8539 5.8999l3.15139-.55567c.7941 4.50356 3.93083 8.24147 8.22772 9.8056 4.29688 1.56413 9.10275.71673 12.60554-2.2227C28.34133 9.98771 30.01045 5.4024 29.21635.89884l3.15139-.55567z" fill="#FFD15C" fill-rule="evenodd"/></svg>
-
-			</div>
-		</div>
-		
-	</section>
-
-	<!-- section about -->
-	<section id="about">
-
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">About Me</h2>
-
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row">
-
-				<div class="col-md-3">
-					<div class="text-center text-md-left">
-						<!-- avatar image -->
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/avatar-2.svg" alt="Bolby" />
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-				</div>
-
-				<div class="col-md-9 triangle-left-md triangle-top-sm">
-					<div class="rounded bg-white shadow-dark padding-30">
-						<div class="row">
-							<div class="col-md-6">
-								<!-- about text -->
-								<p>I am Bolby Doe, web developer from London, United Kingdom. I have rich experience in web site design and building and customization, also I am good at WordPress.</p>
-								<div class="mt-3">
-									<a href="https://jthemes.net/themes/html/bolby/demo/#" class="btn btn-default">Download CV</a>
-								</div>
-								<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-							</div>
-							<div class="col-md-6">
-								<!-- skill item -->
-								<div class="skill-item">
-									<div class="skill-info clearfix">
-										<h4 class="float-left mb-3 mt-0">Development</h4>
-										<span class="float-right">85%</span>
-									</div>
-									<div class="progress">
-										<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85" data-color="#FFD15C">
-										</div>
-									</div>
-									<div class="spacer" data-height="20"></div>
-								</div>
-
-								<!-- skill item -->
-								<div class="skill-item">
-									<div class="skill-info clearfix">
-										<h4 class="float-left mb-3 mt-0">UI/UX design</h4>
-										<span class="float-right">95%</span>
-									</div>
-									<div class="progress">
-										<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95" data-color="#FF4C60">
-										</div>
-									</div>
-									<div class="spacer" data-height="20"></div>
-								</div>
-
-								<!-- skill item -->
-								<div class="skill-item">
-									<div class="skill-info clearfix">
-										<h4 class="float-left mb-3 mt-0">Photography</h4>
-										<span class="float-right">70%</span>
-									</div>
-									<div class="progress">
-										<div class="progress-bar data-background" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="70" data-color="#6C6CE5">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-			<!-- row end -->
-
-			<div class="spacer" data-height="70"></div>
-			
-			<div class="row">
-				
-				<div class="col-md-3 col-sm-6">
-					<!-- fact item -->
-					<div class="fact-item">
-						<span class="icon icon-fire"></span>
-						<div class="details">
-							<h3 class="mb-0 mt-0 number"><em class="count">198</em></h3>
-							<p class="mb-0">Projects completed</p>
-						</div>
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<!-- fact item -->
-					<div class="fact-item">
-						<span class="icon icon-cup"></span>
-						<div class="details">
-							<h3 class="mb-0 mt-0 number"><em class="count">5670</em></h3>
-							<p class="mb-0">Cup of coffee</p>
-						</div>
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<!-- fact item -->
-					<div class="fact-item">
-						<span class="icon icon-people"></span>
-						<div class="details">
-							<h3 class="mb-0 mt-0 number"><em class="count">427</em></h3>
-							<p class="mb-0">Satisfied clients</p>
-						</div>
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-				</div>
-
-				<div class="col-md-3 col-sm-6">
-					<!-- fact item -->
-					<div class="fact-item">
-						<span class="icon icon-badge"></span>
-						<div class="details">
-							<h3 class="mb-0 mt-0 number"><em class="count">35</em></h3>
-							<p class="mb-0">Nominees winner</p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-		
-	</section>
-	
-	<!-- section services -->
-	<section id="services">
-
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Services</h2>
-
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row">
-
-				<div class="col-md-4">
-					<!-- service box -->
-					<div class="service-box rounded data-background padding-30 text-center text-light shadow-blue" data-color="#6C6CE5">
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/service-1.svg" alt="UI/UX design" />
-						<h3 class="mb-3 mt-0">UI/UX design</h3>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</p>
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-				</div>
-
-				<div class="col-md-4" data-wow-delay="0.2s">
-					<!-- service box -->
-					<div class="service-box rounded data-background padding-30 text-center shadow-yellow" data-color="#F9D74C">
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/service-2.svg" alt="UI/UX design" />
-						<h3 class="mb-3 mt-0">Web Development</h3>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</p>
-					</div>
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-				</div>
-
-				<div class="col-md-4" data-wow-delay="0.4s">
-					<!-- service box -->
-					<div class="service-box rounded data-background padding-30 text-center text-light shadow-pink" data-color="#F97B8B">
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/service-3.svg" alt="UI/UX design" />
-						<h3 class="mb-3 mt-0">Photography</h3>
-						<p class="mb-0">Lorem ipsum dolor sit amet consectetuer adipiscing elit aenean commodo ligula eget.</p>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="mt-5 text-center">
-				<p class="mb-0">Looking for a custom job? <a href="#contact">Click here</a> to contact me! 👋</p>
-			</div>
-
-		</div>
-		
-	</section>
-	
-	<!-- section experience -->
-	<section id="experience">
-
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Experience</h2>
-
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row">
-
-				<div class="col-md-6">
-					
-					<!-- timeline wrapper -->
-					<div class="timeline edu bg-white rounded shadow-dark padding-30 overflow-hidden">
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp">
-							<div class="content">
-								<span class="time">2019 - Present</span>
-								<h3 class="title">Academic Degree</h3>
-								<p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.2s">
-							<div class="content">
-								<span class="time">2017 - 2013</span>
-								<h3 class="title">Bachelor's Degree</h3>
-								<p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.4s">
-							<div class="content">
-								<span class="time">2013 - 2009</span>
-								<h3 class="title">Honours Degree</h3>
-								<p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p>
-							</div>
-						</div>
-
-						<!-- main line -->
-						<span class="line"></span>
-
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					
-					<!-- responsive spacer -->
-					<div class="spacer d-md-none d-lg-none" data-height="30"></div>
-
-					<!-- timeline wrapper -->
-					<div class="timeline exp bg-white rounded shadow-dark padding-30 overflow-hidden">
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp">
-							<div class="content">
-								<span class="time">2019 - Present</span>
-								<h3 class="title">Web Designer</h3>
-								<p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.2s">
-							<div class="content">
-								<span class="time">2017 - 2013</span>
-								<h3 class="title">Front-End Developer</h3>
-								<p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p>
-							</div>
-						</div>
-
-						<!-- timeline item -->
-						<div class="timeline-container wow fadeInUp" data-wow-delay="0.4s">
-							<div class="content">
-								<span class="time">2013 - 2009</span>
-								<h3 class="title">Back-End Developer</h3>
-								<p>Lorem ipsum dolor sit amet quo ei simul congue exerci ad nec admodum perfecto.</p>
-							</div>
-						</div>
-
-						<!-- main line -->
-						<span class="line"></span>
-
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-		
-	</section>
-	
-	<!-- section works -->
-	<section id="works">
-
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Recent works</h2>
-
-			<div class="spacer" data-height="60"></div>
-
-			<!-- portfolio filter (desktop) -->
-			<ul class="portfolio-filter list-inline wow fadeInUp">
-				<li class="current list-inline-item" data-filter="*">Everything</li>
-				<li class="list-inline-item" data-filter=".creative">Creative</li>
-				<li class="list-inline-item" data-filter=".art">Art</li>
-				<li class="list-inline-item" data-filter=".design">Design</li>
-				<li class="list-inline-item" data-filter=".branding">Branding</li>
-			</ul>
-			
-			<!-- portfolio filter (mobile) -->
-			<div class="pf-filter-wrapper">
-				<select class="portfolio-filter-mobile">
-					<option value="*">Everything</option>
-					<option value=".creative">Creative</option>
-					<option value=".art">Art</option>
-					<option value=".design">Design</option>
-					<option value=".branding">Branding</option>
-				</select>
-			</div>
-			
-			<!-- portolio wrapper -->
-			<div class="row portfolio-wrapper">
-				
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item art">
-					<a href="https://jthemes.net/themes/html/bolby/demo/images/works/1.svg" class="work-image">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Art</span>
-								<h4 class="title">Project Managment Illustration</h4>
-								<span class="more-button"><i class="icon-magnifier-add"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="https://jthemes.net/themes/html/bolby/demo/images/works/1.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item creative design">
-					<a href="#small-dialog" class="work-content">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Creative</span>
-								<h4 class="title">Guest App Walkthrough Screens</h4>
-								<span class="more-button"><i class="icon-options"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="https://jthemes.net/themes/html/bolby/demo/images/works/2.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-					<div id="small-dialog" class="white-popup zoom-anim-dialog mfp-hide">
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/single-work.svg" alt="Title" />
-						<h2>Guest App Walkthrough Screens</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit nibh in massa semper rutrum. In rhoncus eleifend mi id tempus.</p>
-						<p>Donec consectetur, libero at pretium euismod, nisl felis lobortis urna, id tristique nisl lectus eget ligula.</p>
-						<a href="https://jthemes.net/themes/html/bolby/demo/#" class="btn btn-default">View on Dribbble</a>
-					</div>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item branding">
-					<a href="https://www.youtube.com/watch?v=qf9z4ulfmYw" class="work-video">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Branding</span>
-								<h4 class="title">Delivery App Wireframe</h4>
-								<span class="more-button"><i class="icon-camrecorder"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="https://jthemes.net/themes/html/bolby/demo/images/works/3.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item creative">
-					<a href="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/240233494&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" class="work-video">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Creative</span>
-								<h4 class="title">Onboarding Motivation</h4>
-								<span class="more-button"><i class="icon-music-tone-alt"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="https://jthemes.net/themes/html/bolby/demo/images/works/4.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item art branding">
-					<a href="#gallery-1" class="gallery-link">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Art, Branding</span>
-								<h4 class="title">iMac Mockup Design</h4>
-								<span class="more-button"><i class="icon-picture"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="https://jthemes.net/themes/html/bolby/demo/images/works/5.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-					<div id="gallery-1" class="gallery mfp-hide">
-						<a href="https://jthemes.net/themes/html/bolby/demo/images/works/5.svg"></a>
-						<a href="https://jthemes.net/themes/html/bolby/demo/images/works/4.svg"></a>
-					</div>
-				</div>
-
-				<!-- portfolio item -->
-				<div class="col-md-4 col-sm-6 grid-item creative design">
-					<a href="https://themeforest.net/user/pxlsolutions/portfolio" target="_blank">
-						<div class="portfolio-item rounded shadow-dark">
-							<div class="details">
-								<span class="term">Creative, Design</span>
-								<h4 class="title">Game Store App Concept</h4>
-								<span class="more-button"><i class="icon-link"></i></span>
-							</div>
-							<div class="thumb">
-								<img src="https://jthemes.net/themes/html/bolby/demo/images/works/6.svg" alt="Portfolio-title" />
-								<div class="mask"></div>
-							</div>
-						</div>
-					</a>
-				</div>
-
-			</div>
-			
-			<!-- more button -->
-			<div class="load-more text-center mt-4">
-				<a href="javascript:" class="btn btn-default"><i class="fas fa-spinner"></i> Load more</a>
-				<!-- numbered pagination (hidden for infinite scroll) -->
-				<ul class="portfolio-pagination list-inline d-none">
-					<li class="list-inline-item">1</li>
-					<li class="list-inline-item"><a href="https://jthemes.net/themes/html/bolby/demo/works-2.html">2</a></li>
-				</ul>
-			</div>
-
-		</div>
-
-	</section>
-	
-	<!-- section prices -->
-	<section id="prices">
-
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeIn">Pricing Plans</h2>
-
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row">
-				
-				<div class="col-md-4 pr-md-0 mt-md-4 mt-0">
-					<!-- price item -->
-					<div class="price-item bg-white rounded shadow-dark text-center">
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/price-1.svg" alt="Regular" />
-						<h2 class="plan">Basic</h2>
-						<p>A Simple option but powerful to manage your business</p>
-						<p>Email support</p>
-						<h3 class="price"><em>$</em>9<span>Month</span></h3>
-						<a href="https://jthemes.net/themes/html/bolby/demo/#" class="btn btn-default">Get Started</a>
-					</div>
-				</div>
-
-				<div class="col-md-4 px-md-0 my-4 my-md-0">
-					<!-- price item recommended-->
-					<div class="price-item bg-white rounded shadow-dark text-center best">
-						<span class="badge">Recommended</span>
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/price-2.svg" alt="Premium" />
-						<h2 class="plan">Premium</h2>
-						<p>Unlimited product including apps integrations and more features</p>
-						<p>Mon-Fri support</p>
-						<h3 class="price"><em>$</em>49<span>Month</span></h3>
-						<a href="https://jthemes.net/themes/html/bolby/demo/#" class="btn btn-default">Get Started</a>
-					</div>
-				</div>
-
-				<div class="col-md-4 pl-md-0 mt-md-4 mt-0">
-					<!-- price item -->
-					<div class="price-item bg-white rounded shadow-dark text-center">
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/price-3.svg" alt="Ultimate" />
-						<h2 class="plan">Ultimate</h2>
-						<p>A wise option for large companies and individuals</p>
-						<p>24/7 support</p>
-						<h3 class="price"><em>$</em>99<span>Month</span></h3>
-						<a href="https://jthemes.net/themes/html/bolby/demo/#" class="btn btn-default">Get Started</a>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
-	
-	<!-- section testimonials -->
-	<section id="testimonials">
-
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Clients & Reviews</h2>
-
-			<div class="spacer" data-height="60"></div>
-			
-			<!-- testimonials wrapper -->
-			<div class="testimonials-wrapper">
-				
-				<!-- testimonial item -->
-				<div class="testimonial-item text-center mx-auto">
-					<div class="thumb mb-3 mx-auto">
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/avatar-3.svg" alt="customer-name" />						
-					</div>
-					<h4 class="mt-3 mb-0">John Doe</h4>
-					<span class="subtitle">Product designer at Dribbble</span>
-					<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-						<p class="mb-0">I enjoy working with the theme and learn so much. You guys make the process fun and interesting. Good luck! 👍</p>
-					</div>
-				</div>
-				
-				<!-- testimonial item -->
-				<div class="testimonial-item text-center mx-auto">
-					<div class="thumb mb-3 mx-auto">
-						<img src="https://jthemes.net/themes/html/bolby/demo/images/avatar-1.svg" alt="customer-name" />						
-					</div>
-					<h4 class="mt-3 mb-0">John Doe</h4>
-					<span class="subtitle">Product designer at Dribbble</span>
-					<div class="bg-white padding-30 shadow-dark rounded triangle-top position-relative mt-4">
-						<p class="mb-0">I enjoy working with the theme and learn so much. You guys make the process fun and interesting. Good luck! 🔥</p>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="row">
-				<div class="col-md-3 col-6">
-					<!-- client item -->
-					<div class="client-item">
-						<div class="inner">
-							<img src="https://jthemes.net/themes/html/bolby/demo/images/client-1.svg" alt="client-name" />
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-6">
-					<!-- client item -->
-					<div class="client-item">
-						<div class="inner">
-							<img src="https://jthemes.net/themes/html/bolby/demo/images/client-2.svg" alt="client-name" />
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-6">
-					<!-- client item -->
-					<div class="client-item">
-						<div class="inner">
-							<img src="https://jthemes.net/themes/html/bolby/demo/images/client-3.svg" alt="client-name" />
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-6">
-					<!-- client item -->
-					<div class="client-item">
-						<div class="inner">
-							<img src="https://jthemes.net/themes/html/bolby/demo/images/client-4.svg" alt="client-name" />
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-6">
-					<!-- client item -->
-					<div class="client-item">
-						<div class="inner">
-							<img src="https://jthemes.net/themes/html/bolby/demo/images/client-5.svg" alt="client-name" />
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-6">
-					<!-- client item -->
-					<div class="client-item">
-						<div class="inner">
-							<img src="https://jthemes.net/themes/html/bolby/demo/images/client-6.svg" alt="client-name" />
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-6">
-					<!-- client item -->
-					<div class="client-item">
-						<div class="inner">
-							<img src="https://jthemes.net/themes/html/bolby/demo/images/client-7.svg" alt="client-name" />
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 col-6">
-					<!-- client item -->
-					<div class="client-item">
-						<div class="inner">
-							<img src="https://jthemes.net/themes/html/bolby/demo/images/client-8.svg" alt="client-name" />
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-	</section>
-	
-	<!-- section blog -->
-	<section id="blog">
-
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Latest Posts</h2>
-
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row blog-wrapper">
-				
-				<div class="col-md-4">
-					<!-- blog item -->
-					<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
-						<div class="thumb">
-							<a href="https://jthemes.net/themes/html/bolby/demo/#">
-								<span class="category">Reviews</span>
-							</a>
-							<a href="https://jthemes.net/themes/html/bolby/demo/#">
-								<img src="https://jthemes.net/themes/html/bolby/demo/images/blog/1.svg" alt="blog-title" />
-							</a>
-						</div>
-						<div class="details">
-							<h4 class="my-0 title"><a href="https://jthemes.net/themes/html/bolby/demo/#">5 Best App Development Tool for Your Project</a></h4>
-							<ul class="list-inline meta mb-0 mt-2">
-								<li class="list-inline-item">09 February, 2020</li>
-								<li class="list-inline-item">Bolby</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<!-- blog item -->
-					<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
-						<div class="thumb">
-							<a href="https://jthemes.net/themes/html/bolby/demo/#">
-								<span class="category">Tutorial</span>
-							</a>
-							<a href="https://jthemes.net/themes/html/bolby/demo/#">
-								<img src="https://jthemes.net/themes/html/bolby/demo/images/blog/2.svg" alt="blog-title" />
-							</a>
-						</div>
-						<div class="details">
-							<h4 class="my-0 title"><a href="https://jthemes.net/themes/html/bolby/demo/#">Common Misconceptions About Payment</a></h4>
-							<ul class="list-inline meta mb-0 mt-2">
-								<li class="list-inline-item">07 February, 2020</li>
-								<li class="list-inline-item">Bolby</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4">
-					<!-- blog item -->
-					<div class="blog-item rounded bg-white shadow-dark wow fadeIn">
-						<div class="thumb">
-							<a href="https://jthemes.net/themes/html/bolby/demo/#">
-								<span class="category">Business</span>
-							</a>
-							<a href="https://jthemes.net/themes/html/bolby/demo/#">
-								<img src="https://jthemes.net/themes/html/bolby/demo/images/blog/3.svg" alt="blog-title" />
-							</a>
-						</div>
-						<div class="details">
-							<h4 class="my-0 title"><a href="https://jthemes.net/themes/html/bolby/demo/#">3 Things To Know About Startup Business</a></h4>
-							<ul class="list-inline meta mb-0 mt-2">
-								<li class="list-inline-item">06 February, 2020</li>
-								<li class="list-inline-item">Bolby</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
-	
-	<!-- section contact -->
-	<section id="contact">
-
-		<div class="container">
-			
-			<!-- section title -->
-			<h2 class="section-title wow fadeInUp">Get In Touch</h2>
-
-			<div class="spacer" data-height="60"></div>
-			
-			<div class="row">
-				
-				<div class="col-md-4">
-					<!-- contact info -->
-					<div class="contact-info">
-						<h3 class="wow fadeInUp">Let's talk about everything!</h3>
-						<p class="wow fadeInUp">Don't like forms? Send me an <a href="mailto:name@example.com">email</a>. 👋</p>
-					</div>
-				</div>
-
-				<div class="col-md-8">
-					<!-- Contact Form -->
-					<form id="contact-form" class="contact-form mt-6" method="post" action="https://jthemes.net/themes/html/bolby/demo/form/contact.php">
-						
-						<div class="messages"></div>
-						
-						<div class="row">
-							<div class="column col-md-6">
-								<!-- Name input -->
-								<div class="form-group">
-									<input type="text" class="form-control" name="InputName" id="InputName" placeholder="Your name" required="required" data-error="Name is required.">
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-							
-							<div class="column col-md-6">
-								<!-- Email input -->
-								<div class="form-group">
-									<input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Email address" required="required" data-error="Email is required.">
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-
-							<div class="column col-md-12">
-								<!-- Email input -->
-								<div class="form-group">
-									<input type="text" class="form-control" id="InputSubject" name="InputSubject" placeholder="Subject" required="required" data-error="Subject is required.">
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-					
-							<div class="column col-md-12">
-								<!-- Message textarea -->
-								<div class="form-group">
-									<textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" placeholder="Message" required="required" data-error="Message is required."></textarea>
-									<div class="help-block with-errors"></div>
-								</div>
-							</div>
-						</div>
-
-						<button type="submit" name="submit" id="submit" value="Submit" class="btn btn-default">Send Message</button><!-- Send Button -->
-
-					</form>
-					<!-- Contact Form end -->
-				</div>
-
-			</div>
-
-		</div>
-
-	</section>
-
-	<div class="spacer" data-height="96"></div>
-	
-</main>
-
-<!-- Go to top button -->
-<a href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
-
-<!-- SCRIPTS -->
-<script src="https://jthemes.net/themes/html/bolby/demo/js/jquery-1.12.3.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/jquery.easing.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/jquery.waypoints.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/jquery.counterup.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/popper.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/bootstrap.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/isotope.pkgd.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/infinite-scroll.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/imagesloaded.pkgd.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/slick.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/contact.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/validator.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/wow.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/morphext.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/parallax.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/jquery.magnific-popup.min.js"></script>
-<script src="https://jthemes.net/themes/html/bolby/demo/js/custom.js"></script>
-
+    <div class="container">
+        <div class="header">
+            <div class="profile-section">
+                <img src="https://cvbuilder.storage.c2.liara.space/Files/User_Photo/8f5d5a89-1ecb-46be-b0ce-3ccd125355ae/iVpdj8sevkawzjzNElNVrg-923.jpg" alt="محمد جواد قهرمانی" class="profile-image" onerror="this.style.display='none'">
+                <div class="profile-info">
+                    <h1>محمد جواد قهرمانی</h1>
+                    <h2>مهندس برق</h2>
+                    <div class="basic-info">
+                        <span>متولد: ۱۳۷۱/۶/۲۵</span>
+                        <span>وضعیت سربازی: پایان خدمت</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="sidebar">
+                <div class="section contact-info">
+                    <h3 class="section-title icon icon-phone">اطلاعات تماس</h3>
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>ایمیل:</span>
+                        <a href="mailto:ghahremany.mj@gmail.com">ghahremany.mj@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <span>موبایل:</span>
+                        <span>(+۹۸)۹۳۹۶۱۰۶۵۱۰</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title icon icon-skills">مهارت‌ها</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>سیستم عامل لینوکس</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>راه‌اندازی مرکز داده</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>امنیت سایبری</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>میکروتیک</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>اینترنت اشیا (IoT)</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>ارتباط با مشتری (CRM)</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>هوش مصنوعی</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>دیتابیس MySQL</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Microsoft Office</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title icon icon-language">زبان</h3>
+                    <div class="language-skills">
+                        <div class="language-item">
+                            <div class="language-name">انگلیسی</div>
+                            <div class="language-level">آیلتس 7.5</div>
+                            <div style="margin-top: 10px;">
+                                <div style="font-size: 0.8em; margin-bottom: 5px;">خواندن: عالی</div>
+                                <div style="font-size: 0.8em; margin-bottom: 5px;">نوشتن: خوب</div>
+                                <div style="font-size: 0.8em; margin-bottom: 5px;">گفتاری: خوب</div>
+                                <div style="font-size: 0.8em;">شنیداری: خوب</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="about-section">
+                    <h3 class="section-title icon icon-user">خلاصه رزومه</h3>
+                    <p>کارشناس برق قدرت با بیش از 13 سال تجربه در مدیریت زیرساخت فناوری، امنیت سایبری و رهبری تیم‌های فنی. متخصص در راه‌اندازی مراکز داده، مدیریت سرورهای لینوکس و بهبود فرآیندهای ارتباط با مشتری. دارای سابقه موفق در کاهش زمان پاسخگویی و افزایش رضایت مشتری در نقش سرپرستی. به دنبال فرصت‌های چالش‌برانگیز در حوزه IT و برق رهبری تیم‌های تکنولوژی.</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title icon icon-work">سوابق شغلی</h3>
+                    
+                    <div class="experience-item">
+                        <h3>سرپرست مرکز ارتباط با مشتریان</h3>
+                        <div class="company">دیجی پی</div>
+                        <div class="date">مهر ۱۴۰۱ - اکنون | تهران</div>
+                        <div class="description">
+                            <ul>
+                                <li>تحلیل و بهبود فرآیندهای تماس با کاربر و کاهش زمان پاسخگویی به مشتریان</li>
+                                <li>آموزش و راهنمایی کارشناسان جدید در زمینه بهترین شیوه‌های ارتباط با کاربر</li>
+                                <li>پیگیری کاربران ناراضی و تحلیل علت و چگونگی کسب رضایت آنان</li>
+                                <li>نظارت بر کیفیت خدمات ارائه شده مرکز به کاربران نهایی</li>
+                                <li>افزایش بهره وری تیمی با طراحی سامانه ارتباطی هوشمند جریان های کاری (AI WORKFLOW)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>پشتیبان فنی</h3>
+                        <div class="company">فن آوا</div>
+                        <div class="date">اسفند ۱۳۹۹ - مهر ۱۴۰۱ | تهران</div>
+                        <div class="description">
+                            <ul>
+                                <li>تامین و پشتیبانی فنی محصولات نرم‌افزاری و سخت‌افزاری برای مشتریان</li>
+                                <li>حل مشکلات فنی مشتریان در کوتاه‌ترین زمان ممکن و افزایش سطح رضایت</li>
+                                <li>مشارکت در برگزاری جلسات آموزشی برای کاربران</li>
+                                <li>مدیریت و ثبت درخواست‌های پشتیبانی در سیستم‌های مربوطه</li>
+                                <li>افزایش بهره وری تیمی با بهبود باز توزیع نقش های تیمی با رویکرد چابک</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>افسر سرباز نیروی زمینی ارتش</h3>
+                        <div class="company">افسر سرباز جنگال (فاوا)</div>
+                        <div class="date">اردیبهشت ۱۳۹۶ - آذر ۱۳۹۸ | اصفهان</div>
+                        <div class="description">
+                            <ul>
+                                <li>توسعه و پیاده‌سازی ابزارهای امنیت سایبری برای شناسایی تهدیدات</li>
+                                <li>مدیریت و نظارت بر عملیات‌های دفاع سایبری و واکنش به حادثه</li>
+                                <li>تحلیل نقاط ضعف سیستم‌های اطلاعاتی و پیشنهاد راهکارهای بهبود</li>
+                                <li>تدریس و آموزش مباحث امنیت سایبری به اعضای تیم</li>
+                                <li>بهبود عملکرد سامانه ارتباطی مرکز به یگان های عملیاتی</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3>کارشناس IT</h3>
+                        <div class="company">مؤسسه خیریه بیماران خاص</div>
+                        <div class="date">فروردین ۱۳۸۸ - مهر ۱۳۹۲ | تهران</div>
+                        <div class="description">
+                            <ul>
+                                <li>پشتیبانی فنی و عیب‌یابی سیستم‌های سخت‌افزاری و نرم‌افزاری برای بیش از ۱۰۰ کاربر</li>
+                                <li>طراحی و پیاده‌سازی سیستم‌های تحت وب و پایگاه‌های داده</li>
+                                <li>مدیریت و به‌روزرسانی سرورهای شرکت و اطمینان از امنیت اطلاعات</li>
+                                <li>آموزش کاربران در زمینه استفاده از نرم‌افزارهای جدید</li>
+                                <li>تحلیل نیازهای فناوری اطلاعات سازمان و ارائه راهکارهای نوین</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title icon icon-education">سوابق تحصیلی</h3>
+                    
+                    <div class="education-item">
+                        <h3>کارشناسی برق - قدرت</h3>
+                        <div class="institution">موسسه آموزش عالی صائب تبریزی (دولتی)</div>
+                        <div class="date">۱۳۹۲ - ۱۳۹۶ | زنجان، ابهر</div>
+                        <div class="company">گرایش: الکتروتکنیک | معدل: ۱۷</div>
+                    </div>
+
+                    <div class="education-item">
+                        <h3>دیپلم برق - قدرت</h3>
+                        <div class="institution">خوجه نصیر طوسی (دولتی)</div>
+                        <div class="date">۱۳۸۹ - ۱۳۹۲ | تهران، اسلامشهر</div>
+                        <div class="company">گرایش: الکتروتکنیک | معدل: ۱۸</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title icon icon-project">پروژه‌ها</h3>
+                    
+                    <div class="project-item">
+                        <h3>هوشمند سازی و کنترل تحت اینترنت اشیاء</h3>
+                        <div class="company">مزرعه سلامتی عمو محسن</div>
+                        <div class="date">تیر ۱۴۰۱</div>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>راه‌اندازی مرکز کنترل و تماس (VoIP)</h3>
+                        <div class="company">فن آوا</div>
+                        <div class="date">اردیبهشت ۱۴۰۱</div>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>هوشمند سازی مرکز ارتباط با مشتریان فن آوا</h3>
+                        <div class="company">فن آوا</div>
+                        <div class="date">اردیبهشت ۱۴۰۱</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title icon icon-certificate">دوره‌ها و گواهینامه‌ها</h3>
+                    
+                    <div class="certificate-item">
+                        <h3>آموزش هوش مصنوعی مولد و کاربرد در مدیریت پروژه</h3>
+                        <div class="institution">مکتب خونه</div>
+                        <div class="date">اردیبهشت ۱۴۰۴</div>
+                    </div>
+
+                    <div class="certificate-item">
+                        <h3>آموزش هوش مصنوعی مولد: مبانی مهندسی پرامپت</h3>
+                        <div class="institution">مکتب خونه</div>
+                        <div class="date">اردیبهشت ۱۴۰۴</div>
+                    </div>
+
+                    <div class="certificate-item">
+                        <h3>آموزش اینترنت اشیا (IoT) در صنعت</h3>
+                        <div class="institution">مکتب خونه</div>
+                        <div class="date">شهریور ۱۴۰۳</div>
+                    </div>
+
+                    <div class="certificate-item">
+                        <h3>آموزش میکروتیک</h3>
+                        <div class="institution">مکتب خونه</div>
+                        <div class="date">آبان ۱۴۰۰</div>
+                    </div>
+
+                    <div class="certificate-item">
+                        <h3>مدیریت سرور و امنیت در لینوکس</h3>
+                        <div class="institution">مکتب خونه</div>
+                        <div class="date">اردیبهشت ۱۳۹۸</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title icon icon-award">افتخارات</h3>
+                    <div class="honors-list">
+                        <div class="honor-item">
+                            <div class="honor-icon">🏆</div>
+                            <div>
+                                <strong>افسر نمونه نیروی زمینی ارتش جمهوری اسلامی ایران</strong>
+                                <div style="font-size: 0.9em; margin-top: 5px;">اردیبهشت ۱۳۹۸</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+   ایجاد شده توسط محمد جواد قهرمانی
+        </div>
+    </div>
 </body>
 </html>
