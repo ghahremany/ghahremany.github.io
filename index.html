@@ -1,378 +1,10 @@
-<script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-          return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-            try {
-                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                var firstSheetName = workbook.SheetNames[0];
-                var worksheet = workbook.Sheets[firstSheetName];
-
-                // Convert sheet to JSON to filter blank rows
-                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                // Filter out blank rows (rows where all cells are empty, null, or undefined)
-                var filteredData = jsonData.filter(row => row.some(filledCell));
-
-                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-                var headerRowIndex = filteredData.findIndex((row, index) =>
-                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                );
-                // Fallback
-                if (headerRowIndex === -1 || headerRowIndex > 25) {
-                  headerRowIndex = 0;
-                }
-
-                // Convert filtered JSON back to CSV
-                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
-                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                return csv;
-            } catch (e) {
-                console.error(e);
-                return "";
-            }
-        }
-        return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>رزومه محمد جواد قهرمانی</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Vazirmatn', sans-serif;
-            background: #f5f5f5;
-            direction: rtl;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #fbd22b, #f1c40f, #e4b00a);
-            padding: 40px;
-            color: #333;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(0,0,0,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(0,0,0,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(0,0,0,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-            opacity: 0.2;
-        }
-        
-        .header::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-            transform: rotate(45deg);
-            z-index: 0;
-        }
-        
-        .profile-section {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 5px solid rgba(255,255,255,0.9);
-            object-fit: cover;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-        
-        .profile-info h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .profile-info h2 {
-            font-size: 1.4em;
-            font-weight: 500;
-            color: #555;
-            margin-bottom: 15px;
-        }
-        
-        .basic-info {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .basic-info span {
-            background: rgba(255,255,255,0.95);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            color: #333;
-        }
-        
-        .about-section {
-            margin-top: 20px;
-            background: rgba(255,255,255,0.15);
-            padding: 20px;
-            border-radius: 10px;
-        }
-        
-        .about-section p {
-            font-size: 1.1em;
-            line-height: 1.8;
-            color: #333;
-            text-align: justify;
-        }
-        
-        .content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 0;
-        }
-        
-        .sidebar {
-            background: #2c3e50;
-            color: white;
-            padding: 40px 30px;
-        }
-        
-        .main-content {
-            padding: 40px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section-title {
-            font-size: 1.3em;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #fbd22b;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .main-content .section-title {
-            color: #2c3e50;
-            border-bottom: 2px solid #fbd22b;
-            padding-bottom: 10px;
-        }
-        
-        .contact-info {
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            padding: 10px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-        }
-        
-        .contact-item a {
-            color: #fbd22b;
-            text-decoration: none;
-        }
-        
-        .skill-item {
-            margin-bottom: 15px;
-        }
-        
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-        
-        .skill-bar {
-            height: 6px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        
-        .skill-fill {
-            height: 100%;
-            background: #fbd22b;
-            border-radius: 3px;
-            transition: width 0.3s ease;
-        }
-        
-        .experience-item, .education-item, .project-item, .certificate-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-right: 4px solid #fbd22b;
-        }
-        
-        .experience-item h3, .education-item h3, .project-item h3, .certificate-item h3 {
-            color: #2c3e50;
-            font-size: 1.2em;
-            margin-bottom: 8px;
-        }
-        
-        .company, .institution {
-            color: #666;
-            font-weight: 500;
-            margin-bottom: 5px;
-        }
-        
-        .date {
-            color: #999;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        
-        .description ul {
-            padding-right: 20px;
-        }
-        
-        .description li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-        
-        .language-skills {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        
-        .language-item {
-            padding: 15px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 8px;
-        }
-        
-        .language-name {
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .language-level {
-            font-size: 0.9em;
-            color: #fbd22b;
-        }
-        
-        .language-rating {
-            color: #ffd700;
-            font-size: 1em;
-        }
-        
-        .honors-list {
-            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-            padding: 20px;
-            border-radius: 10px;
-            color: #856404;
-        }
-        
-        .honor-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 10px 0;
-        }
-        
-        .honor-icon {
-            width: 30px;
-            height: 30px;
-            background: #fbd22b;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
-            
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .language-skills {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 20px;
-            background: #2c3e50;
-            color: white;
-            font-size: 0.9em;
-        }
-        
-        .footer a {
-            color: #fbd22b;
-            text-decoration: none;
-        }
-        
-        /* Icons using CSS */
-        .icon::before {
-            content: '';
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            margin-left: 8px;
-        }
-        
-        .icon-user::before { content: '👤'; }
-        .icon-phone::before { content: '📱'; }
-        .icon-email::before { content: '✉️'; }
-        .icon-skills::before { content: '🛠️'; }
-        .icon-education::before { content: '🎓'; }
-        .icon-work::before { content: '💼'; }
-        .icon-project::before { content: '🚀'; }
-        .icon-certificate::before { content: '📜'; }
-        .icon-language::before { content: '🌐'; }
-        .icon-award::before { content: '🏆'; }
-    </style>
+    <link rel="stylesheet" href="resume-css.css">
 </head>
 <body>
     <div class="container">
@@ -389,7 +21,7 @@
                 </div>
             </div>
             <div class="about-section">
-                <h3 class="section-title icon icon-user">خلاصه رزومه</h3>
+                <h3 class="section-title-resume icon icon-user">خلاصه رزومه</h3>
                 <p>کارشناس برق قدرت با بیش از 13 سال تجربه در مدیریت زیرساخت فناوری، امنیت سایبری و رهبری تیم‌های فنی. متخصص در راه‌اندازی مراکز داده، مدیریت سرورهای لینوکس و بهبود فرآیندهای ارتباط با مشتری. دارای سابقه موفق در کاهش زمان پاسخگویی و افزایش رضایت مشتری در نقش سرپرستی. به دنبال فرصت‌های چالش‌برانگیز در حوزه IT و برق رهبری تیم‌های تکنولوژی.</p>
             </div>
         </div>
@@ -432,7 +64,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>امنیت سایبری</span>
+                            <span>(CEH)امنیت سایبری</span>
                             <span>100%</span>
                         </div>
                         <div class="skill-bar">
@@ -469,6 +101,24 @@
                     <div class="skill-item">
                         <div class="skill-name">
                             <span>هوش مصنوعی</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+    		    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>وردپرس</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+		   <div class="skill-item">
+                        <div class="skill-name">
+                            <span>طراحی سایت</span>
                             <span>100%</span>
                         </div>
                         <div class="skill-bar">
@@ -667,8 +317,10 @@
         </div>
 
         <div class="footer">
-            ساخته شده با ❤️ برای جامعه توسعه‌دهندگان ایران
+            طراحی و توسعه با  ❤️ توسط محمد جواد قهرمانی
         </div>
     </div>
+    
+    <script src="resume-js.js"></script>
 </body>
 </html>
