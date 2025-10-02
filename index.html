@@ -11,54 +11,61 @@
 </head>
 <body>
     <div class="container">
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+            <button class="lang-btn active" data-lang="fa" title="فارسی">
+                <span class="flag">🇮🇷</span>
+                <span class="lang-text">فارسی</span>
+            </button>
+            <button class="lang-btn" data-lang="en" title="English">
+                <span class="flag">🇬🇧</span>
+                <span class="lang-text">English</span>
+            </button>
+            <button class="lang-btn" data-lang="ar" title="العربية">
+                <span class="flag">🇸🇦</span>
+                <span class="lang-text">العربية</span>
+            </button>
+        </div>
+
         <div class="header">
             <div class="profile-section">
-				<img src="profile.png" alt="محمد جواد قهرمانی" class="profile-image" loading="lazy">
+                <img src="profile.png" alt="محمد جواد قهرمانی" class="profile-image" loading="lazy">
                 <div class="profile-info">
-                    <h1>محمد جواد قهرمانی</h1>
-                    <h2>مهندس برق</h2>
+                    <h1 data-i18n="name">محمد جواد قهرمانی</h1>
+                    <h2 data-i18n="title">مهندس برق</h2>
                     <div class="basic-info">
-                        <span>متولد: ۱۳۷۱/۶/۲۵</span>
-                        <span>وضعیت سربازی: پایان خدمت</span>
+                        <span><span data-i18n="birthdate-label">متولد:</span> <span data-i18n="birthdate">۱۳۷۱/۶/۲۵</span></span>
+                        <span data-i18n="military-status">وضعیت سربازی: پایان خدمت</span>
                     </div>
                 </div>
             </div>
             <div class="about-section">
-                <h3 class="section-title-resume icon icon-user">خلاصه رزومه</h3>
-                <p>کارشناس برق قدرت با بیش از 13 سال تجربه در مدیریت زیرساخت فناوری، امنیت سایبری و رهبری تیم‌های فنی. متخصص در راه‌اندازی مراکز داده، مدیریت سرورهای لینوکس و بهبود فرآیندهای ارتباط با مشتری. دارای سابقه موفق در کاهش زمان پاسخگویی و افزایش رضایت مشتری در نقش سرپرستی. به دنبال فرصت‌های چالش‌برانگیز در حوزه IT و برق رهبری تیم‌های تکنولوژی.</p>
+                <h3 class="section-title-resume icon icon-user" data-i18n="summary-title">خلاصه رزومه</h3>
+                <p data-i18n="summary">کارشناس برق قدرت با بیش از 13 سال تجربه در مدیریت زیرساخت فناوری، امنیت سایبری و رهبری تیم‌های فنی. متخصص در راه‌اندازی مراکز داده، مدیریت سرورهای لینوکس و بهبود فرآیندهای ارتباط با مشتری. دارای سابقه موفق در کاهش زمان پاسخگویی و افزایش رضایت مشتری در نقش سرپرستی. به دنبال فرصت‌های چالش‌برانگیز در حوزه IT و برق رهبری تیم‌های تکنولوژی.</p>
             </div>
         </div>
 
         <div class="content">
             <div class="sidebar">
                 <div class="section contact-info">
-                    <h3 class="section-title icon icon-phone">اطلاعات تماس</h3>
+                    <h3 class="section-title icon icon-phone" data-i18n="contact-title">اطلاعات تماس</h3>
                     <div class="contact-item">
                         <span>📧</span>
-                        <span>ایمیل:</span>
+                        <span data-i18n="email-label">ایمیل:</span>
                         <a href="mailto:ghahremany.mj@gmail.com">ghahremany.mj@gmail.com</a>
                     </div>
                     <div class="contact-item">
                         <span>📱</span>
-                        <span>موبایل:</span>
+                        <span data-i18n="phone-label">موبایل:</span>
                         <span>(+۹۸)۹۳۹۶۱۰۶۵۱۰</span>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title icon icon-skills">مهارت‌ها</h3>
+                    <h3 class="section-title icon icon-skills" data-i18n="skills-title">مهارت‌ها</h3>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>سیستم عامل لینوکس</span>
-                            <span>100%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>راه‌اندازی مرکز داده</span>
+                            <span data-i18n="skill-linux">سیستم عامل لینوکس</span>
                             <span>100%</span>
                         </div>
                         <div class="skill-bar">
@@ -67,7 +74,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>(CEH)امنیت سایبری</span>
+                            <span data-i18n="skill-datacenter">راه‌اندازی مرکز داده</span>
                             <span>100%</span>
                         </div>
                         <div class="skill-bar">
@@ -76,7 +83,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>میکروتیک</span>
+                            <span data-i18n="skill-security">امنیت سایبری (CEH)</span>
                             <span>100%</span>
                         </div>
                         <div class="skill-bar">
@@ -85,7 +92,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>اینترنت اشیا (IoT)</span>
+                            <span data-i18n="skill-mikrotik">میکروتیک</span>
                             <span>100%</span>
                         </div>
                         <div class="skill-bar">
@@ -94,7 +101,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>ارتباط با مشتری (CRM)</span>
+                            <span data-i18n="skill-iot">اینترنت اشیا (IoT)</span>
                             <span>100%</span>
                         </div>
                         <div class="skill-bar">
@@ -103,25 +110,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>هوش مصنوعی</span>
-                            <span>100%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width: 100%"></div>
-                        </div>
-                    </div>
-    		    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>وردپرس</span>
-                            <span>100%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width: 100%"></div>
-                        </div>
-                    </div>
-		   <div class="skill-item">
-                        <div class="skill-name">
-                            <span>طراحی سایت</span>
+                            <span data-i18n="skill-crm">ارتباط با مشتری (CRM)</span>
                             <span>100%</span>
                         </div>
                         <div class="skill-bar">
@@ -130,7 +119,34 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>دیتابیس MySQL</span>
+                            <span data-i18n="skill-ai">هوش مصنوعی</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-i18n="skill-wordpress">وردپرس</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-i18n="skill-webdesign">طراحی سایت</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span data-i18n="skill-mysql">دیتابیس MySQL</span>
                             <span>80%</span>
                         </div>
                         <div class="skill-bar">
@@ -139,7 +155,7 @@
                     </div>
                     <div class="skill-item">
                         <div class="skill-name">
-                            <span>Microsoft Office</span>
+                            <span data-i18n="skill-office">Microsoft Office</span>
                             <span>80%</span>
                         </div>
                         <div class="skill-bar">
@@ -149,16 +165,16 @@
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title icon icon-language">زبان</h3>
+                    <h3 class="section-title icon icon-language" data-i18n="language-title">زبان</h3>
                     <div class="language-skills">
                         <div class="language-item">
-                            <div class="language-name">انگلیسی</div>
-                            <div class="language-level">آیلتس 7.5</div>
+                            <div class="language-name" data-i18n="language-english">انگلیسی</div>
+                            <div class="language-level" data-i18n="ielts-score">آیلتس 7.5</div>
                             <div style="margin-top: 10px;">
-                                <div style="font-size: 0.8em; margin-bottom: 5px;">خواندن: <span class="language-rating">★★★★★</span> (عالی)</div>
-                                <div style="font-size: 0.8em; margin-bottom: 5px;">نوشتن: <span class="language-rating">★★★★</span> (خوب)</div>
-                                <div style="font-size: 0.8em; margin-bottom: 5px;">گفتاری: <span class="language-rating">★★★★</span> (خوب)</div>
-                                <div style="font-size: 0.8em;">شنیداری: <span class="language-rating">★★★★</span> (خوب)</div>
+                                <div style="font-size: 0.8em; margin-bottom: 5px;"><span data-i18n="reading-label">خواندن:</span> <span class="language-rating">★★★★★</span> <span data-i18n="reading-level">(عالی)</span></div>
+                                <div style="font-size: 0.8em; margin-bottom: 5px;"><span data-i18n="writing-label">نوشتن:</span> <span class="language-rating">★★★★</span> <span data-i18n="writing-level">(خوب)</span></div>
+                                <div style="font-size: 0.8em; margin-bottom: 5px;"><span data-i18n="speaking-label">گفتاری:</span> <span class="language-rating">★★★★</span> <span data-i18n="speaking-level">(خوب)</span></div>
+                                <div style="font-size: 0.8em;"><span data-i18n="listening-label">شنیداری:</span> <span class="language-rating">★★★★</span> <span data-i18n="listening-level">(خوب)</span></div>
                             </div>
                         </div>
                     </div>
@@ -167,151 +183,151 @@
 
             <div class="main-content">
                 <div class="section">
-                    <h3 class="section-title icon icon-work">سوابق شغلی</h3>
+                    <h3 class="section-title icon icon-work" data-i18n="experience-title">سوابق شغلی</h3>
                     
                     <div class="experience-item">
-                        <h3>سرپرست مرکز ارتباط با مشتریان</h3>
-                        <div class="company">دیجی پی</div>
-                        <div class="date">مهر ۱۴۰۱ - اکنون | تهران</div>
+                        <h3 data-i18n="job1-title">سرپرست مرکز ارتباط با مشتریان</h3>
+                        <div class="company" data-i18n="job1-company">دیجی پی</div>
+                        <div class="date" data-i18n="job1-date">مهر ۱۴۰۱ - اکنون | تهران</div>
                         <div class="description">
                             <ul>
-                                <li>تحلیل و بهبود فرآیندهای تماس با کاربر و کاهش زمان پاسخگویی به مشتریان</li>
-                                <li>آموزش و راهنمایی کارشناسان جدید در زمینه بهترین شیوه‌های ارتباط با کاربر</li>
-                                <li>پیگیری کاربران ناراضی و تحلیل علت و چگونگی کسب رضایت آنان</li>
-                                <li>نظارت بر کیفیت خدمات ارائه شده مرکز به کاربران نهایی</li>
-                                <li>افزایش بهره وری تیمی با طراحی سامانه ارتباطی هوشمند جریان های کاری (AI WORKFLOW)</li>
+                                <li data-i18n="job1-desc1">تحلیل و بهبود فرآیندهای تماس با کاربر و کاهش زمان پاسخگویی به مشتریان</li>
+                                <li data-i18n="job1-desc2">آموزش و راهنمایی کارشناسان جدید در زمینه بهترین شیوه‌های ارتباط با کاربر</li>
+                                <li data-i18n="job1-desc3">پیگیری کاربران ناراضی و تحلیل علت و چگونگی کسب رضایت آنان</li>
+                                <li data-i18n="job1-desc4">نظارت بر کیفیت خدمات ارائه شده مرکز به کاربران نهایی</li>
+                                <li data-i18n="job1-desc5">افزایش بهره وری تیمی با طراحی سامانه ارتباطی هوشمند جریان های کاری (AI WORKFLOW)</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="experience-item">
-                        <h3>پشتیبان فنی</h3>
-                        <div class="company">فن آوا</div>
-                        <div class="date">اسفند ۱۳۹۹ - مهر ۱۴۰۱ | تهران</div>
+                        <h3 data-i18n="job2-title">پشتیبان فنی</h3>
+                        <div class="company" data-i18n="job2-company">فن آوا</div>
+                        <div class="date" data-i18n="job2-date">اسفند ۱۳۹۹ - مهر ۱۴۰۱ | تهران</div>
                         <div class="description">
                             <ul>
-                                <li>تامین و پشتیبانی فنی محصولات نرم‌افزاری و سخت‌افزاری برای مشتریان</li>
-                                <li>حل مشکلات فنی مشتریان در کوتاه‌ترین زمان ممکن و افزایش سطح رضایت</li>
-                                <li>مشارکت در برگزاری جلسات آموزشی برای کاربران</li>
-                                <li>مدیریت و ثبت درخواست‌های پشتیبانی در سیستم‌های مربوطه</li>
-                                <li>افزایش بهره وری تیمی با بهبود باز توزیع نقش های تیمی با رویکرد چابک</li>
+                                <li data-i18n="job2-desc1">تامین و پشتیبانی فنی محصولات نرم‌افزاری و سخت‌افزاری برای مشتریان</li>
+                                <li data-i18n="job2-desc2">حل مشکلات فنی مشتریان در کوتاه‌ترین زمان ممکن و افزایش سطح رضایت</li>
+                                <li data-i18n="job2-desc3">مشارکت در برگزاری جلسات آموزشی برای کاربران</li>
+                                <li data-i18n="job2-desc4">مدیریت و ثبت درخواست‌های پشتیبانی در سیستم‌های مربوطه</li>
+                                <li data-i18n="job2-desc5">افزایش بهره وری تیمی با بهبود باز توزیع نقش های تیمی با رویکرد چابک</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="experience-item">
-                        <h3>افسر سرباز نیروی زمینی ارتش</h3>
-                        <div class="company">افسر سرباز جنگال (فاوا)</div>
-                        <div class="date">اردیبهشت ۱۳۹۶ - آذر ۱۳۹۸ | اصفهان</div>
+                        <h3 data-i18n="job3-title">افسر سرباز نیروی زمینی ارتش</h3>
+                        <div class="company" data-i18n="job3-company">افسر سرباز جنگال (فاوا)</div>
+                        <div class="date" data-i18n="job3-date">اردیبهشت ۱۳۹۶ - آذر ۱۳۹۸ | اصفهان</div>
                         <div class="description">
                             <ul>
-                                <li>توسعه و پیاده‌سازی ابزارهای امنیت سایبری برای شناسایی تهدیدات</li>
-                                <li>مدیریت و نظارت بر عملیات‌های دفاع سایبری و واکنش به حادثه</li>
-                                <li>تحلیل نقاط ضعف سیستم‌های اطلاعاتی و پیشنهاد راهکارهای بهبود</li>
-                                <li>تدریس و آموزش مباحث امنیت سایبری به اعضای تیم</li>
-                                <li>بهبود عملکرد سامانه ارتباطی مرکز به یگان های عملیاتی</li>
+                                <li data-i18n="job3-desc1">توسعه و پیاده‌سازی ابزارهای امنیت سایبری برای شناسایی تهدیدات</li>
+                                <li data-i18n="job3-desc2">مدیریت و نظارت بر عملیات‌های دفاع سایبری و واکنش به حادثه</li>
+                                <li data-i18n="job3-desc3">تحلیل نقاط ضعف سیستم‌های اطلاعاتی و پیشنهاد راهکارهای بهبود</li>
+                                <li data-i18n="job3-desc4">تدریس و آموزش مباحث امنیت سایبری به اعضای تیم</li>
+                                <li data-i18n="job3-desc5">بهبود عملکرد سامانه ارتباطی مرکز به یگان های عملیاتی</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="experience-item">
-                        <h3>کارشناس IT</h3>
-                        <div class="company">مؤسسه خیریه بیماران خاص</div>
-                        <div class="date">فروردین ۱۳۸۸ - مهر ۱۳۹۲ | تهران</div>
+                        <h3 data-i18n="job4-title">کارشناس IT</h3>
+                        <div class="company" data-i18n="job4-company">مؤسسه خیریه بیماران خاص</div>
+                        <div class="date" data-i18n="job4-date">فروردین ۱۳۸۸ - مهر ۱۳۹۲ | تهران</div>
                         <div class="description">
                             <ul>
-                                <li>پشتیبانی فنی و عیب‌یابی سیستم‌های سخت‌افزاری و نرم‌افزاری برای بیش از ۱۰۰ کاربر</li>
-                                <li>طراحی و پیاده‌سازی سیستم‌های تحت وب و پایگاه‌های داده</li>
-                                <li>مدیریت و به‌روزرسانی سرورهای شرکت و اطمینان از امنیت اطلاعات</li>
-                                <li>آموزش کاربران در زمینه استفاده از نرم‌افزارهای جدید</li>
-                                <li>تحلیل نیازهای فناوری اطلاعات سازمان و ارائه راهکارهای نوین</li>
+                                <li data-i18n="job4-desc1">پشتیبانی فنی و عیب‌یابی سیستم‌های سخت‌افزاری و نرم‌افزاری برای بیش از ۱۰۰ کاربر</li>
+                                <li data-i18n="job4-desc2">طراحی و پیاده‌سازی سیستم‌های تحت وب و پایگاه‌های داده</li>
+                                <li data-i18n="job4-desc3">مدیریت و به‌روزرسانی سرورهای شرکت و اطمینان از امنیت اطلاعات</li>
+                                <li data-i18n="job4-desc4">آموزش کاربران در زمینه استفاده از نرم‌افزارهای جدید</li>
+                                <li data-i18n="job4-desc5">تحلیل نیازهای فناوری اطلاعات سازمان و ارائه راهکارهای نوین</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title icon icon-education">سوابق تحصیلی</h3>
+                    <h3 class="section-title icon icon-education" data-i18n="education-title">سوابق تحصیلی</h3>
                     
                     <div class="education-item">
-                        <h3>کارشناسی برق - قدرت</h3>
-                        <div class="institution">موسسه آموزش عالی صائب تبریزی (دولتی)</div>
-                        <div class="date">۱۳۹۲ - ۱۳۹۶ | زنجان، ابهر</div>
-                        <div class="company">گرایش: الکتروتکنیک | معدل: ۱۷</div>
+                        <h3 data-i18n="edu1-degree">کارشناسی برق - قدرت</h3>
+                        <div class="institution" data-i18n="edu1-institution">موسسه آموزش عالی صائب تبریزی (دولتی)</div>
+                        <div class="date" data-i18n="edu1-date">۱۳۹۲ - ۱۳۹۶ | زنجان، ابهر</div>
+                        <div class="company"><span data-i18n="edu1-field">گرایش: الکتروتکنیک</span> | <span data-i18n="edu1-gpa">معدل: ۱۷</span></div>
                     </div>
 
                     <div class="education-item">
-                        <h3>دیپلم برق - قدرت</h3>
-                        <div class="institution">خوجه نصیر طوسی (دولتی)</div>
-                        <div class="date">۱۳۸۹ - ۱۳۹۲ | تهران، اسلامشهر</div>
-                        <div class="company">گرایش: الکتروتکنیک | معدل: ۱۸</div>
+                        <h3 data-i18n="edu2-degree">دیپلم برق - قدرت</h3>
+                        <div class="institution" data-i18n="edu2-institution">خوجه نصیر طوسی (دولتی)</div>
+                        <div class="date" data-i18n="edu2-date">۱۳۸۹ - ۱۳۹۲ | تهران، اسلامشهر</div>
+                        <div class="company"><span data-i18n="edu2-field">گرایش: الکتروتکنیک</span> | <span data-i18n="edu2-gpa">معدل: ۱۸</span></div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title icon icon-project">پروژه‌ها</h3>
+                    <h3 class="section-title icon icon-project" data-i18n="projects-title">پروژه‌ها</h3>
                     
                     <div class="project-item">
-                        <h3>هوشمند سازی و کنترل تحت اینترنت اشیاء</h3>
-                        <div class="company">مزرعه سلامتی عمو محسن</div>
-                        <div class="date">تیر ۱۴۰۱</div>
+                        <h3 data-i18n="project1-title">هوشمند سازی و کنترل تحت اینترنت اشیاء</h3>
+                        <div class="company" data-i18n="project1-company">مزرعه سلامتی عمو محسن</div>
+                        <div class="date" data-i18n="project1-date">تیر ۱۴۰۱</div>
                     </div>
 
                     <div class="project-item">
-                        <h3>راه‌اندازی مرکز کنترل و تماس (VoIP)</h3>
-                        <div class="company">فن آوا</div>
-                        <div class="date">اردیبهشت ۱۴۰۱</div>
+                        <h3 data-i18n="project2-title">راه‌اندازی مرکز کنترل و تماس (VoIP)</h3>
+                        <div class="company" data-i18n="project2-company">فن آوا</div>
+                        <div class="date" data-i18n="project2-date">اردیبهشت ۱۴۰۱</div>
                     </div>
 
                     <div class="project-item">
-                        <h3>هوشمند سازی مرکز ارتباط با مشتریان فن آوا</h3>
-                        <div class="company">فن آوا</div>
-                        <div class="date">اردیبهشت ۱۴۰۱</div>
+                        <h3 data-i18n="project3-title">هوشمند سازی مرکز ارتباط با مشتریان فن آوا</h3>
+                        <div class="company" data-i18n="project3-company">فن آوا</div>
+                        <div class="date" data-i18n="project3-date">اردیبهشت ۱۴۰۱</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title icon icon-certificate">دوره‌ها و گواهینامه‌ها</h3>
+                    <h3 class="section-title icon icon-certificate" data-i18n="certificates-title">دوره‌ها و گواهینامه‌ها</h3>
                     
                     <div class="certificate-item">
-                        <h3>آموزش هوش مصنوعی مولد و کاربرد در مدیریت پروژه</h3>
-                        <div class="institution">مکتب خونه</div>
-                        <div class="date">اردیبهشت ۱۴۰۴</div>
+                        <h3 data-i18n="cert1-title">آموزش هوش مصنوعی مولد و کاربرد در مدیریت پروژه</h3>
+                        <div class="institution" data-i18n="cert1-institution">مکتب خونه</div>
+                        <div class="date" data-i18n="cert1-date">اردیبهشت ۱۴۰۴</div>
                     </div>
 
                     <div class="certificate-item">
-                        <h3>آموزش هوش مصنوعی مولد: مبانی مهندسی پرامپت</h3>
-                        <div class="institution">مکتب خونه</div>
-                        <div class="date">اردیبهشت ۱۴۰۴</div>
+                        <h3 data-i18n="cert2-title">آموزش هوش مصنوعی مولد: مبانی مهندسی پرامپت</h3>
+                        <div class="institution" data-i18n="cert2-institution">مکتب خونه</div>
+                        <div class="date" data-i18n="cert2-date">اردیبهشت ۱۴۰۴</div>
                     </div>
 
                     <div class="certificate-item">
-                        <h3>آموزش اینترنت اشیا (IoT) در صنعت</h3>
-                        <div class="institution">مکتب خونه</div>
-                        <div class="date">شهریور ۱۴۰۳</div>
+                        <h3 data-i18n="cert3-title">آموزش اینترنت اشیا (IoT) در صنعت</h3>
+                        <div class="institution" data-i18n="cert3-institution">مکتب خونه</div>
+                        <div class="date" data-i18n="cert3-date">شهریور ۱۴۰۳</div>
                     </div>
 
                     <div class="certificate-item">
-                        <h3>آموزش میکروتیک</h3>
-                        <div class="institution">مکتب خونه</div>
-                        <div class="date">آبان ۱۴۰۰</div>
+                        <h3 data-i18n="cert4-title">آموزش میکروتیک</h3>
+                        <div class="institution" data-i18n="cert4-institution">مکتب خونه</div>
+                        <div class="date" data-i18n="cert4-date">آبان ۱۴۰۰</div>
                     </div>
 
                     <div class="certificate-item">
-                        <h3>مدیریت سرور و امنیت در لینوکس</h3>
-                        <div class="institution">مکتب خونه</div>
-                        <div class="date">اردیبهشت ۱۳۹۸</div>
+                        <h3 data-i18n="cert5-title">مدیریت سرور و امنیت در لینوکس</h3>
+                        <div class="institution" data-i18n="cert5-institution">مکتب خونه</div>
+                        <div class="date" data-i18n="cert5-date">اردیبهشت ۱۳۹۸</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title icon icon-award">افتخارات</h3>
+                    <h3 class="section-title icon icon-award" data-i18n="honors-title">افتخارات</h3>
                     <div class="honors-list">
                         <div class="honor-item">
                             <div class="honor-icon">🏆</div>
                             <div>
-                                <strong>افسر نمونه نیروی زمینی ارتش جمهوری اسلامی ایران</strong>
-                                <div style="font-size: 0.9em; margin-top: 5px;">اردیبهشت ۱۳۹۸</div>
+                                <strong data-i18n="honor1-title">افسر نمونه نیروی زمینی ارتش جمهوری اسلامی ایران</strong>
+                                <div style="font-size: 0.9em; margin-top: 5px;" data-i18n="honor1-date">اردیبهشت ۱۳۹۸</div>
                             </div>
                         </div>
                     </div>
@@ -320,7 +336,7 @@
         </div>
 
         <div class="footer">
-            طراحی و توسعه با  ❤️ توسط محمد جواد قهرمانی
+            <span data-i18n="footer-text">طراحی و توسعه با</span> ❤️ <span data-i18n="footer-by">توسط محمد جواد قهرمانی</span>
         </div>
     </div>
     
