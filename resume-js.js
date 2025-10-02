@@ -1,4 +1,6 @@
+// ============================================
 // File handling variables
+// ============================================
 var gk_isXlsx = false;
 var gk_xlsxFileLookup = {};
 var gk_fileData = {};
@@ -16,22 +18,18 @@ function loadFileData(filename) {
             var firstSheetName = workbook.SheetNames[0];
             var worksheet = workbook.Sheets[firstSheetName];
 
-            // Convert sheet to JSON to filter blank rows
             var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-            // Filter out blank rows (rows where all cells are empty, null, or undefined)
             var filteredData = jsonData.filter(row => row.some(filledCell));
 
-            // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
             var headerRowIndex = filteredData.findIndex((row, index) =>
                 row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
             );
-            // Fallback
+            
             if (headerRowIndex === -1 || headerRowIndex > 25) {
                 headerRowIndex = 0;
             }
 
-            // Convert filtered JSON back to CSV
-            var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+            var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
             csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
             return csv;
         } catch (e) {
@@ -42,66 +40,77 @@ function loadFileData(filename) {
     return gk_fileData[filename] || "";
 }
 
-// Smooth scroll for anchor links (if needed in future)
-document.addEventListener('DOMContentLoaded', function() {
-    // Add smooth scroll behavior for internal links
-    const anchors = document.querySelectorAll('a[href^="#"]');
-    
-    anchors.forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-    
-    // Animate skill bars on page load
-    animateSkillBars();
-    
-    // Add print functionality
-    initPrintButton();
-});
+// ============================================
+// Skill Bars Animation (Fixed Version)
+// ============================================
 
-// Animate skill bars when they come into view
+let skillObserver = null;
+
+// تابع اصلی انیمیشن skill bars
 function animateSkillBars() {
     const skillBars = document.querySelectorAll('.skill-fill');
     
+    // اگر observer قبلی وجود داشت، disconnect کن
+    if (skillObserver) {
+        skillObserver.disconnect();
+    }
+    
     const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.3,
+        rootMargin: '0px 0px -100px 0px'
     };
     
-    const observer = new IntersectionObserver(function(entries) {
+    skillObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const skillBar = entry.target;
-                const width = skillBar.style.width;
-                skillBar.style.width = '0%';
-                
-                setTimeout(() => {
-                    skillBar.style.width = width;
-                }, 100);
-                
-                observer.unobserve(skillBar);
+                animateSingleSkillBar(entry.target);
             }
         });
     }, observerOptions);
     
+    // Reset و مشاهده همه skill bars
     skillBars.forEach(bar => {
-        observer.observe(bar);
+        // ذخیره عرض اصلی در data attribute
+        if (!bar.dataset.targetWidth) {
+            bar.dataset.targetWidth = bar.style.width;
+        }
+        bar.style.width = '0%';
+        skillObserver.observe(bar);
     });
 }
 
-// Initialize print button functionality
+// انیمیت کردن یک skill bar
+function animateSingleSkillBar(bar) {
+    const targetWidth = bar.dataset.targetWidth || bar.style.width;
+    
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    
+    // Force reflow
+    void bar.offsetHeight;
+    
+    requestAnimationFrame(() => {
+        bar.style.transition = 'width 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+        bar.style.width = targetWidth;
+    });
+}
+
+// Reset کردن skill bars (برای تغییر زبان)
+function resetAndAnimateSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-fill');
+    
+    skillBars.forEach((bar, index) => {
+        setTimeout(() => {
+            animateSingleSkillBar(bar);
+        }, index * 80);
+    });
+}
+
+// ============================================
+// Print Button Functionality
+// ============================================
+
 function initPrintButton() {
-    // Check if a print button exists (for future enhancement)
     const printBtn = document.getElementById('printBtn');
     
     if (printBtn) {
@@ -110,7 +119,6 @@ function initPrintButton() {
         });
     }
     
-    // Add keyboard shortcut for printing (Ctrl+P is already default)
     document.addEventListener('keydown', function(e) {
         if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
             e.preventDefault();
@@ -119,7 +127,10 @@ function initPrintButton() {
     });
 }
 
-// Handle responsive menu for mobile (if needed in future)
+// ============================================
+// Mobile Menu
+// ============================================
+
 function initMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
     const sidebar = document.querySelector('.sidebar');
@@ -129,7 +140,6 @@ function initMobileMenu() {
             sidebar.classList.toggle('active');
         });
         
-        // Close menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
                 sidebar.classList.remove('active');
@@ -138,7 +148,10 @@ function initMobileMenu() {
     }
 }
 
-// Add fade-in animation for sections
+// ============================================
+// Scroll Animations
+// ============================================
+
 function addScrollAnimations() {
     const sections = document.querySelectorAll('.section');
     
@@ -169,21 +182,157 @@ function addScrollAnimations() {
     });
 }
 
-// Initialize all animations when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-        addScrollAnimations();
-        initMobileMenu();
+// ============================================
+// Smooth Scroll for Anchor Links
+// ============================================
+
+function initSmoothScroll() {
+    const anchors = document.querySelectorAll('a[href^="#"]');
+    
+    anchors.forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
-} else {
-    addScrollAnimations();
-    initMobileMenu();
 }
+
+// ============================================
+// GitHub Projects Integration
+// ============================================
+
+const GITHUB_CONFIG = {
+    username: 'ghahremany', // 👈 اینجا یوزرنیم گیتهابت رو بنویس
+    maxRepos: 5,
+    sortBy: 'updated'
+};
+
+async function fetchGitHubRepos() {
+    const loadingElement = document.getElementById('github-loading');
+    const reposContainer = document.getElementById('github-repos');
+    const errorElement = document.getElementById('github-error');
+    
+    if (!loadingElement || !reposContainer) {
+        return; // اگر المان‌ها وجود نداشتن، برگرد
+    }
+    
+    try {
+        const response = await fetch(
+            `https://api.github.com/users/${GITHUB_CONFIG.username}/repos?sort=${GITHUB_CONFIG.sortBy}&per_page=100`
+        );
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch repos');
+        }
+        
+        const repos = await response.json();
+        
+        loadingElement.style.display = 'none';
+        
+        const filteredRepos = repos
+            .filter(repo => !repo.fork)
+            .sort((a, b) => b.stargazers_count - a.stargazers_count)
+            .slice(0, GITHUB_CONFIG.maxRepos);
+        
+        if (filteredRepos.length === 0) {
+            reposContainer.innerHTML = '<p style="color: rgba(255,255,255,0.6); text-align: center; font-size: 0.9em;">هنوز پروژه‌ای وجود ندارد</p>';
+            return;
+        }
+        
+        reposContainer.innerHTML = filteredRepos.map(repo => createRepoCard(repo)).join('');
+        
+        const viewAllLink = document.createElement('a');
+        viewAllLink.href = `https://github.com/${GITHUB_CONFIG.username}?tab=repositories`;
+        viewAllLink.target = '_blank';
+        viewAllLink.className = 'github-view-all';
+        viewAllLink.setAttribute('data-i18n', 'github-view-all');
+        viewAllLink.textContent = getTranslation('github-view-all') || 'مشاهده همه پروژه‌ها →';
+        reposContainer.appendChild(viewAllLink);
+        
+    } catch (error) {
+        console.error('Error fetching GitHub repos:', error);
+        loadingElement.style.display = 'none';
+        if (errorElement) errorElement.style.display = 'block';
+    }
+}
+
+function createRepoCard(repo) {
+    const description = repo.description || getTranslation('github-no-description') || 'بدون توضیحات';
+    const language = repo.language || 'Unknown';
+    const stars = repo.stargazers_count || 0;
+    const forks = repo.forks_count || 0;
+    
+    return `
+        <div class="github-repo" onclick="window.open('${repo.html_url}', '_blank')">
+            <div class="github-repo-name">${repo.name}</div>
+            <div class="github-repo-description">${description}</div>
+            <div class="github-repo-stats">
+                ${language !== 'Unknown' ? `<span class="github-language">${language}</span>` : ''}
+                ${stars > 0 ? `
+                    <span class="github-stat">
+                        <span class="github-stat-icon">⭐</span>
+                        <span>${stars}</span>
+                    </span>
+                ` : ''}
+                ${forks > 0 ? `
+                    <span class="github-stat">
+                        <span class="github-stat-icon">🔱</span>
+                        <span>${forks}</span>
+                    </span>
+                ` : ''}
+                <span class="github-stat">
+                    <span class="github-stat-icon">🔄</span>
+                    <span>${formatDate(repo.updated_at)}</span>
+                </span>
+            </div>
+        </div>
+    `;
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    const currentLang = localStorage.getItem('preferredLanguage') || 'fa';
+    
+    if (diffDays < 1) {
+        return currentLang === 'fa' ? 'امروز' : currentLang === 'ar' ? 'اليوم' : 'Today';
+    } else if (diffDays < 7) {
+        return currentLang === 'fa' ? `${diffDays} روز پیش` : 
+               currentLang === 'ar' ? `منذ ${diffDays} أيام` : 
+               `${diffDays}d ago`;
+    } else if (diffDays < 30) {
+        const weeks = Math.floor(diffDays / 7);
+        return currentLang === 'fa' ? `${weeks} هفته پیش` : 
+               currentLang === 'ar' ? `منذ ${weeks} أسابيع` : 
+               `${weeks}w ago`;
+    } else if (diffDays < 365) {
+        const months = Math.floor(diffDays / 30);
+        return currentLang === 'fa' ? `${months} ماه پیش` : 
+               currentLang === 'ar' ? `منذ ${months} أشهر` : 
+               `${months}mo ago`;
+    } else {
+        const years = Math.floor(diffDays / 365);
+        return currentLang === 'fa' ? `${years} سال پیش` : 
+               currentLang === 'ar' ? `منذ ${years} سنوات` : 
+               `${years}y ago`;
+    }
+}
+
 // ============================================
 // Multi-Language Support (i18n)
 // ============================================
 
-// Translation object
 const translations = {
     fa: {
         // Header
@@ -213,7 +362,8 @@ const translations = {
         "skill-webdesign": "طراحی سایت",
         "skill-mysql": "دیتابیس MySQL",
         "skill-office": "Microsoft Office",
-        
+        "social-title": "شبکه‌های اجتماعی",
+		
         // Language
         "language-title": "زبان",
         "language-english": "انگلیسی",
@@ -226,6 +376,13 @@ const translations = {
         "speaking-level": "(خوب)",
         "listening-label": "شنیداری:",
         "listening-level": "(خوب)",
+        
+        // GitHub
+        "github-title": "پروژه‌های GitHub",
+        "github-loading": "در حال بارگذاری...",
+        "github-error": "خطا در بارگذاری پروژه‌ها",
+        "github-no-description": "بدون توضیحات",
+        "github-view-all": "مشاهده همه پروژه‌ها →",
         
         // Experience
         "experience-title": "سوابق شغلی",
@@ -353,7 +510,8 @@ const translations = {
         "skill-webdesign": "Web Design",
         "skill-mysql": "MySQL Database",
         "skill-office": "Microsoft Office",
-        
+        "social-title": "Social Media",
+		
         // Language
         "language-title": "Languages",
         "language-english": "English",
@@ -366,6 +524,14 @@ const translations = {
         "speaking-level": "(Good)",
         "listening-label": "Listening:",
         "listening-level": "(Good)",
+        "social-title": "وسائل التواصل الاجتماعي",
+		
+        // GitHub
+        "github-title": "GitHub Projects",
+        "github-loading": "Loading...",
+        "github-error": "Error loading projects",
+        "github-no-description": "No description",
+        "github-view-all": "View All Projects →",
         
         // Experience
         "experience-title": "Work Experience",
@@ -412,7 +578,7 @@ const translations = {
         "edu1-date": "2013 - 2017 | Zanjan, Abhar",
         "edu1-field": "Field: Electrotechnics",
         "edu1-gpa": "GPA: 17/20",
-        
+
         "edu2-degree": "Diploma in Electrical Engineering - Power",
         "edu2-institution": "Khajeh Nasir Toosi (Public)",
         "edu2-date": "2010 - 2013 | Tehran, Eslamshahr",
@@ -506,6 +672,13 @@ const translations = {
         "speaking-level": "(جيد)",
         "listening-label": "الاستماع:",
         "listening-level": "(جيد)",
+        
+        // GitHub
+        "github-title": "مشاريع GitHub",
+        "github-loading": "جاري التحميل...",
+        "github-error": "خطأ في تحميل المشاريع",
+        "github-no-description": "بدون وصف",
+        "github-view-all": "عرض جميع المشاريع ←",
         
         // Experience
         "experience-title": "الخبرة العملية",
@@ -607,18 +780,22 @@ const translations = {
 };
 
 // Language settings
-let currentLang = 'fa'; // Default language
+let currentLang = 'fa';
+
+// Helper function to get translation
+function getTranslation(key) {
+    return translations[currentLang] && translations[currentLang][key];
+}
 
 // Function to change language
 function changeLanguage(lang) {
     currentLang = lang;
     
-    // Update HTML lang and dir attributes
     const html = document.documentElement;
     html.setAttribute('lang', lang);
     
     if (lang === 'ar' || lang === 'fa') {
-        html.setAttribute('dir', 'rtl');
+		        html.setAttribute('dir', 'rtl');
         document.body.setAttribute('dir', 'rtl');
     } else {
         html.setAttribute('dir', 'ltr');
@@ -652,6 +829,11 @@ function changeLanguage(lang) {
         ar: 'السيرة الذاتية - محمد جواد قهرماني'
     };
     document.title = titles[lang];
+    
+    // Re-animate skill bars after language change
+    setTimeout(() => {
+        resetAndAnimateSkillBars();
+    }, 200);
 }
 
 // Initialize language switcher
@@ -670,18 +852,57 @@ function initLanguageSwitcher() {
     changeLanguage(savedLang);
 }
 
-// Initialize when DOM is ready
+// ============================================
+// Main Initialization
+// ============================================
+
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Resume initialized');
+    
+    // Initialize language switcher first
     initLanguageSwitcher();
     
-    // Existing initialization code...
-    animateSkillBars();
+    // Initialize smooth scroll
+    initSmoothScroll();
+    
+    // Initialize print button
     initPrintButton();
-    addScrollAnimations();
+    
+    // Initialize mobile menu
     initMobileMenu();
+    
+    // Add scroll animations
+    addScrollAnimations();
+    
+    // Animate skill bars with delay
+    setTimeout(() => {
+        animateSkillBars();
+    }, 300);
+    
+    // Fetch GitHub repos if the section exists
+    if (document.getElementById('github-repos')) {
+        fetchGitHubRepos();
+    }
 });
 
 // If document is already loaded
 if (document.readyState !== 'loading') {
+    console.log('🚀 Resume already loaded');
+    
     initLanguageSwitcher();
+    initSmoothScroll();
+    initPrintButton();
+    initMobileMenu();
+    
+    setTimeout(() => {
+        animateSkillBars();
+        addScrollAnimations();
+    }, 300);
+    
+    if (document.getElementById('github-repos')) {
+        fetchGitHubRepos();
+    }
 }
+
+// Log for debugging
+console.log('✅ Resume JavaScript loaded successfully');
