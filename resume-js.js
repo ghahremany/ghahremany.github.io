@@ -524,7 +524,7 @@ const translations = {
         "speaking-level": "(Good)",
         "listening-label": "Listening:",
         "listening-level": "(Good)",
-        "social-title": "وسائل التواصل الاجتماعي",
+        "social-title": "Social Media",
 		
         // GitHub
         "github-title": "GitHub Projects",
@@ -672,7 +672,8 @@ const translations = {
         "speaking-level": "(جيد)",
         "listening-label": "الاستماع:",
         "listening-level": "(جيد)",
-        
+        "social-title": "وسائل التواصل الاجتماعي",
+		
         // GitHub
         "github-title": "مشاريع GitHub",
         "github-loading": "جاري التحميل...",
