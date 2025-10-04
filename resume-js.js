@@ -386,7 +386,7 @@ const translations = {
         
         // Experience
         "experience-title": "سوابق شغلی",
-        "job1-title": "سرپرست مرکز ارتباط با مشتریان",
+        "job1-title": " مرکز ارتباط با مشتریان",
         "job1-company": "دیجی پی",
         "job1-date": "مهر ۱۴۰۱ - اکنون | تهران",
         "job1-desc1": "تحلیل و بهبود فرآیندهای تماس با کاربر و کاهش زمان پاسخگویی به مشتریان",
@@ -535,7 +535,7 @@ const translations = {
         
         // Experience
         "experience-title": "Work Experience",
-        "job1-title": "Customer Contact Center Supervisor",
+        "job1-title": "Customer Contact Center ",
         "job1-company": "DigiPay",
         "job1-date": "Oct 2022 - Present | Tehran",
         "job1-desc1": "Analyzed and improved user contact processes, reducing customer response time",
