@@ -674,10 +674,10 @@ const translations = {
         "skill-crm": "إدارة علاقات العملاء",
         "skill-ai": "الذكاء الاصطناعي",
         "skill-wordpress": "ووردبريس",
-        "skill-webdesign": "تصميم المواقع"
+        "skill-webdesign": "تصميم المواقع",
         "skill-android": "تطوير أندرويد (Java)",
         "skill-backend": "خلفية PHP وواجهات REST",
-        "skill-bots": "البوتات والأتمتة (n8n, Actions)",,
+        "skill-bots": "البوتات والأتمتة (n8n, Actions)",
         "skill-mysql": "قاعدة بيانات MySQL",
         "skill-office": "Microsoft Office",
         
