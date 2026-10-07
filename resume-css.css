@@ -1078,3 +1078,37 @@ body[dir="ltr"] .basic-info {
 body[dir="ltr"] .social-links {
     justify-content: flex-start;
 }
+
+
+/* ============================================
+   Dark / Light Theme (دکمهٔ خورشید و ماه)
+   ============================================ */
+#theme-toggle{min-width:44px;justify-content:center;font-size:1.15em;}
+body,.container,.header,.project-item,.certificate-item,.honors-list,.language-switcher{transition:background .35s ease,color .35s ease;}
+
+body.dark{background:#0e141d;}
+body.dark .container{background:#161e2b;box-shadow:0 0 30px rgba(0,0,0,.55);}
+body.dark .header{background:#1d2836;color:#e7edf3;}
+body.dark .about-section{background:rgba(255,255,255,.06);}
+body.dark .about-section p{color:#d5dde6;}
+body.dark .main-content .section-title{color:#e8eef5;}
+body.dark .experience-item h3,body.dark .education-item h3,body.dark .project-item h3,body.dark .certificate-item h3{color:#e8eef5;}
+body.dark .company,body.dark .institution{color:#a9b6c4;}
+body.dark .date{color:#7d8a9e;}
+body.dark .description li{color:#c3cdda;}
+body.dark .project-item,body.dark .certificate-item{background:#1e2a3a;}
+body.dark .experience-item:hover,body.dark .education-item:hover,body.dark .project-item:hover,body.dark .certificate-item:hover{box-shadow:0 5px 18px rgba(0,0,0,.5);}
+body.dark .honors-list{background:linear-gradient(135deg,#2f2a16,#342d18);color:#e8d891;}
+body.dark .language-switcher{background:rgba(22,30,43,.95);}
+body.dark .lang-btn{color:#c9d4e0;}
+body.dark .sidebar{background:#18222f;}
+body.dark .footer{background:#18222f;}
+
+/* چاپ همیشه روشن */
+@media print{
+    body.dark{background:#fff !important}
+    body.dark .container{background:#fff !important;box-shadow:none}
+    body.dark .container *{color:#222 !important}
+    body.dark .sidebar,body.dark .footer{background:#2c3e50 !important}
+    body.dark .sidebar *,body.dark .footer *{color:#fff !important}
+}

@@ -206,6 +206,37 @@ function initSmoothScroll() {
 }
 
 // ============================================
+// Dark / Light Theme Toggle (خورشید و ماه)
+// ============================================
+
+function initThemeToggle() {
+    const btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+
+    // بار اول: از تنظیم سیستم کاربر پیروی کن
+    if (saved === 'dark' || (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.classList.add('dark');
+    }
+    updateIcon();
+
+    btn.addEventListener('click', function() {
+        const isDark = document.body.classList.toggle('dark');
+        try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+        updateIcon();
+    });
+
+    function updateIcon() {
+        const flag = btn.querySelector('.flag');
+        const dark = document.body.classList.contains('dark');
+        if (flag) flag.textContent = dark ? '☀️' : '🌙';
+        btn.title = dark ? 'حالت روشن' : 'حالت تیره';
+    }
+}
+
+// ============================================
 // GitHub Projects Integration
 // ============================================
 
@@ -899,6 +930,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize mobile menu
     initMobileMenu();
     
+    // Initialize theme toggle
+    initThemeToggle();
+    
     // Add scroll animations
     addScrollAnimations();
     
@@ -921,6 +955,7 @@ if (document.readyState !== 'loading') {
     initSmoothScroll();
     initPrintButton();
     initMobileMenu();
+    initThemeToggle();
     
     setTimeout(() => {
         animateSkillBars();
