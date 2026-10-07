@@ -337,12 +337,12 @@ const translations = {
     fa: {
         // Header
         "name": "محمد جواد قهرمانی",
-        "title": "مهندس برق",
+        "title": "مهندس برق و توسعه‌دهندهٔ نرم‌افزار",
         "birthdate-label": "متولد:",
         "birthdate": "۱۳۷۱/۶/۲۵",
         "military-status": "وضعیت سربازی: پایان خدمت",
         "summary-title": "خلاصه رزومه",
-        "summary": "کارشناس برق قدرت با بیش از 13 سال تجربه در مدیریت زیرساخت فناوری، امنیت سایبری و رهبری تیم‌های فنی. متخصص در راه‌اندازی مراکز داده، مدیریت سرورهای لینوکس و بهبود فرآیندهای ارتباط با مشتری. دارای سابقه موفق در کاهش زمان پاسخگویی و افزایش رضایت مشتری در نقش سرپرستی. به دنبال فرصت‌های چالش‌برانگیز در حوزه IT و برق رهبری تیم‌های تکنولوژی.",
+        "summary": "کارشناس برق قدرت با بیش از 13 سال تجربه در مدیریت زیرساخت فناوری، امنیت سایبری و رهبری تیم‌های فنی. متخصص در راه‌اندازی مراکز داده، مدیریت سرورهای لینوکس و بهبود فرآیندهای ارتباط با مشتری. توسعه‌دهندهٔ اندروید و وب — خالق سوئیت «یار»: سه اپ بومی اندروید با وب‌سرویس چندساختمانی PHP/MySQL، پنل ادمین با ورود دومرحله‌ای و چت‌بات پشتیبانی. به دنبال فرصت‌های چالش‌برانگیز در حوزه IT و برق و رهبری تیم‌های تکنولوژی.",
         
         // Contact
         "contact-title": "اطلاعات تماس",
@@ -360,6 +360,9 @@ const translations = {
         "skill-ai": "هوش مصنوعی",
         "skill-wordpress": "وردپرس",
         "skill-webdesign": "طراحی سایت",
+        "skill-android": "توسعه اندروید (Java)",
+        "skill-backend": "بک‌اند PHP و وب‌سرویس",
+        "skill-bots": "بات‌ها و اتوماسیون (n8n, Actions)",
         "skill-mysql": "دیتابیس MySQL",
         "skill-office": "Microsoft Office",
         "social-title": "شبکه‌های اجتماعی",
@@ -438,6 +441,12 @@ const translations = {
         
         // Projects
         "projects-title": "پروژه‌ها",
+        "project0-title": "سوئیت «یار» — سامانهٔ هوشمند مدیریت ساختمان",
+        "project0-company": "توسعهٔ مستقل — سه اپ اندروید + هاب سرور + پنل وب + چت‌بات",
+        "project0-date": "۱۴۰۴ - ۱۴۰۵ | در حال توسعه",
+        "project0-d1": "توسعهٔ سه اپ بومی اندروید (Java): نگهبان‌یار (گشت شبانهٔ QR ضدتقلب)، مدیر یار (داشبورد، صندوق، تأیید اهالی) و ساکن‌یار (ثبت‌نام، بسته، شارژ)",
+        "project0-d2": "وب‌سرویس چندساختمانی PHP/MySQL با ثبت‌نام و تأیید اهالی، چرخهٔ دوطرفهٔ مهمان و پیام‌رسانی داخلی + پشتیبان ابری رمزنگاری‌شده (AES-GCM)",
+        "project0-d3": "پنل ادمین وب با ورود دومرحله‌ای (رمز + Google Authenticator) و چت‌بات پشتیبانی خودکار در پیام‌رسان بله",
         "project1-title": "هوشمند سازی و کنترل تحت اینترنت اشیاء",
         "project1-company": "مزرعه سلامتی عمو محسن",
         "project1-date": "تیر ۱۴۰۱",
@@ -485,12 +494,12 @@ const translations = {
     en: {
         // Header
         "name": "Mohammad Javad Ghahremani",
-        "title": "Electrical Engineer",
+        "title": "Electrical Engineer & Software Developer",
         "birthdate-label": "Born:",
         "birthdate": "September 16, 1992",
         "military-status": "Military Service: Completed",
         "summary-title": "Professional Summary",
-        "summary": "Power Electrical Engineer with over 13 years of experience in IT infrastructure management, cybersecurity, and technical team leadership. Specialized in data center deployment, Linux server management, and customer relationship process improvement. Proven track record in reducing response time and increasing customer satisfaction in supervisory roles. Seeking challenging opportunities in IT and electrical engineering leadership.",
+        "summary": "Power Electrical Engineer with over 13 years of experience in IT infrastructure management, cybersecurity, and technical team leadership. Specialized in data center deployment, Linux server management, and customer relationship process improvement. Proven track record in reducing response time and increasing customer satisfaction in supervisory roles. Android &amp; web developer — creator of the 'Yar' suite: three native Android apps backed by a multi-tenant PHP/MySQL cloud, an admin panel with two-factor auth, and an automated support chatbot. Seeking challenging opportunities in IT, software engineering and technology leadership.",
         
         // Contact
         "contact-title": "Contact Information",
@@ -508,6 +517,9 @@ const translations = {
         "skill-ai": "Artificial Intelligence",
         "skill-wordpress": "WordPress",
         "skill-webdesign": "Web Design",
+        "skill-android": "Android Development (Java)",
+        "skill-backend": "PHP Backend & REST APIs",
+        "skill-bots": "Bots & Automation (n8n, Actions)",
         "skill-mysql": "MySQL Database",
         "skill-office": "Microsoft Office",
         "social-title": "Social Media",
@@ -587,6 +599,12 @@ const translations = {
         
         // Projects
         "projects-title": "Projects",
+        "project0-title": "\"Yar\" Suite — Smart Building Management System",
+        "project0-company": "Independent — 3 Android apps + cloud hub + web panel + chatbot",
+        "project0-date": "2025 - 2026 | Ongoing",
+        "project0-d1": "Three native Android apps (Java): Negahban-Yar (anti-cheat QR night patrol), Modir-Yar (manager dashboard, treasury, resident approvals) and Saken-Yar (registration, parcels, charges)",
+        "project0-d2": "Multi-tenant PHP/MySQL web service with resident registration & approvals, two-way guest workflow and in-app messaging + AES-GCM encrypted cloud backup",
+        "project0-d3": "Web admin panel with two-factor login (password + Google Authenticator) and an automated support chatbot on the Bale messenger",
         "project1-title": "Automation and Control via Internet of Things",
         "project1-company": "Uncle Mohsen's Health Farm",
         "project1-date": "July 2022",
@@ -634,7 +652,7 @@ const translations = {
     ar: {
         // Header
         "name": "محمد جواد قهرماني",
-        "title": "مهندس كهرباء",
+        "title": "مهندس كهرباء ومطوّر برمجيات",
         "birthdate-label": "تاريخ الميلاد:",
         "birthdate": "١٦ سبتمبر ١٩٩٢",
         "military-status": "الخدمة العسكرية: مكتملة",
@@ -656,7 +674,10 @@ const translations = {
         "skill-crm": "إدارة علاقات العملاء",
         "skill-ai": "الذكاء الاصطناعي",
         "skill-wordpress": "ووردبريس",
-        "skill-webdesign": "تصميم المواقع",
+        "skill-webdesign": "تصميم المواقع"
+        "skill-android": "تطوير أندرويد (Java)",
+        "skill-backend": "خلفية PHP وواجهات REST",
+        "skill-bots": "البوتات والأتمتة (n8n, Actions)",,
         "skill-mysql": "قاعدة بيانات MySQL",
         "skill-office": "Microsoft Office",
         
@@ -735,6 +756,12 @@ const translations = {
         
         // Projects
         "projects-title": "المشاريع",
+        "project0-title": "مجموعة «يار» — نظام إدارة المباني الذكي",
+        "project0-company": "تطوير مستقل — ثلاثة تطبيقات أندرويد + خادم سحابي + لوحة ويب + بوت",
+        "project0-date": "٢٠٢٥ - ٢٠٢٦ | قيد التطوير",
+        "project0-d1": "ثلاثة تطبيقات أندرويد أصلية (Java): نگهبان-يار (دوريات ليلية بـ QR ضد الغش)، مدير-يار (لوحة المدير) وساكن-يار (التسجيل والطرود)",
+        "project0-d2": "خدمة ويب PHP/MySQL متعددة المباني مع تسجيل السكان والموافقات + نسخ احتياطي سحابي مشفر",
+        "project0-d3": "لوحة إدارة ويب بتسجيل دخول ثنائي (رمز + Google Authenticator) وروبوت دعم آلي على تطبيق بَلَه",
         "project1-title": "الأتمتة والتحكم عبر إنترنت الأشياء",
         "project1-company": "مزرعة العم محسن الصحية",
         "project1-date": "يوليو ٢٠٢٢",
