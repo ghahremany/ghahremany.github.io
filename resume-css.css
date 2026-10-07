@@ -1083,7 +1083,8 @@ body[dir="ltr"] .social-links {
 /* ============================================
    Dark / Light Theme (دکمهٔ خورشید و ماه)
    ============================================ */
-#theme-toggle{min-width:44px;justify-content:center;font-size:1.15em;}
+#theme-toggle{display:flex;align-items:center;justify-content:center;min-width:44px;padding:8px 12px;border:2px solid transparent;background:transparent;border-radius:25px;cursor:pointer;transition:all .3s ease;font-size:1.15em;line-height:1;}
+#theme-toggle:hover{background:rgba(251,210,43,.1);border-color:#fbd22b;transform:translateY(-2px);}
 body,.container,.header,.project-item,.certificate-item,.honors-list,.language-switcher{transition:background .35s ease,color .35s ease;}
 
 body.dark{background:#0e141d;}

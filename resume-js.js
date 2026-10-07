@@ -902,12 +902,14 @@ function initLanguageSwitcher() {
     langButtons.forEach(button => {
         button.addEventListener('click', function() {
             const lang = this.getAttribute('data-lang');
+            if (!lang) return;   // دکمه‌های غیرزبانی (مثل حالت تیره) نادیده گرفته شوند
             changeLanguage(lang);
         });
     });
     
     // Load saved language preference or default to Persian
-    const savedLang = localStorage.getItem('preferredLanguage') || 'fa';
+    let savedLang = localStorage.getItem('preferredLanguage') || 'fa';
+    if (['fa', 'en', 'ar'].indexOf(savedLang) === -1) savedLang = 'fa';   // ترمیم مقدار خراب احتمالی
     changeLanguage(savedLang);
 }
 
