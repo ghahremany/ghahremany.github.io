@@ -882,6 +882,8 @@ body[dir="ltr"] .basic-info {
     .language-switcher {
         display: none !important;
     }
+}
+
 	/* ============================================
    Social Media Links (Redesigned)
    ============================================ */
@@ -1097,7 +1099,8 @@ body.dark .experience-item h3,body.dark .education-item h3,body.dark .project-it
 body.dark .company,body.dark .institution{color:#a9b6c4;}
 body.dark .date{color:#7d8a9e;}
 body.dark .description li{color:#c3cdda;}
-body.dark .project-item,body.dark .certificate-item{background:#1e2a3a;}
+body.dark .project-item,body.dark .certificate-item,body.dark .experience-item,body.dark .education-item{background:#1e2a3a;}
+body.dark .profile-info h2{color:#a9b6c4;}
 body.dark .experience-item:hover,body.dark .education-item:hover,body.dark .project-item:hover,body.dark .certificate-item:hover{box-shadow:0 5px 18px rgba(0,0,0,.5);}
 body.dark .honors-list{background:linear-gradient(135deg,#2f2a16,#342d18);color:#e8d891;}
 body.dark .language-switcher{background:rgba(22,30,43,.95);}
