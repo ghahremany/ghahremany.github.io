@@ -1,10 +1,10 @@
 /* 🌐 دستیار هوشمند سایت — ویجت پشتیبانی
    ظاهر هم‌سان قبلی (دکمهٔ گرد قرمز) ولی محتوا از سرور خودمان می‌آید:
-   https://negahbanyar.xo.je/chat.html  (هوش مصنوعی + دانشنامهٔ سایت)
+   https://negahbanyar.xo.je/widget.html  (هوش مصنوعی + دانشنامهٔ سایت)
    چرا iframe؟ چون هاست، درخواست‌های بین‌دامنه‌ای را با چالش امنیتی رد می‌کند؛
    داخل iframe همه‌چیز هم‌دامنه است و چالش خودکار حل می‌شود. */
 (function () {
-  var SRC = 'https://negahbanyar.xo.je/chat.html';
+  var SRC = 'https://negahbanyar.xo.je/widget.html';
   var SMALL = 64, WIDE = 400, TALL = 600;
 
   var f = document.createElement('iframe');
