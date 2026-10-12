@@ -13,9 +13,10 @@
   css.textContent = `
   #nyBtn{position:fixed;bottom:22px;right:22px;width:64px;height:64px;border-radius:50%;background:#E74266;color:#fff;
     border:0;cursor:pointer;box-shadow:0 10px 26px rgba(231,66,102,.45);z-index:99998;display:grid;place-items:center;
-    font-size:28px;transition:transform .18s,box-shadow .18s}
+    font-size:28px;transition:opacity .22s ease,transform .22s ease,box-shadow .18s}
+  #nyBtn.hide{opacity:0;transform:scale(.5);pointer-events:none}
   #nyBtn:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 14px 32px rgba(231,66,102,.55)}
-  #nyWin{position:fixed;bottom:98px;right:22px;width:380px;max-width:calc(100vw - 32px);height:540px;max-height:calc(100vh - 130px);
+  #nyWin{position:fixed;bottom:22px;right:22px;width:380px;max-width:calc(100vw - 32px);height:540px;max-height:calc(100vh - 130px);
     background:#fff;border-radius:18px;box-shadow:0 24px 60px rgba(10,30,45,.28);z-index:99999;display:none;
     flex-direction:column;overflow:hidden;direction:rtl;font-family:Tahoma,system-ui,sans-serif}
   #nyWin.on{display:flex}
@@ -65,14 +66,19 @@
   }
   function open() {
     win.classList.add('on');
+    btn.classList.add('hide');            // 🔴 دکمه محو می‌شود
     if (!msgs.children.length) { add(TITLE, 'nyBot'); add('چطور می‌تونم کمکتون کنم؟', 'nyBot'); }
-    setTimeout(function () { inp.focus(); }, 120);
+    setTimeout(function () { inp.focus(); }, 220);
+  }
+  function close() {
+    win.classList.remove('on');
+    btn.classList.remove('hide');         // 🔴 دکمه برمی‌گردد
   }
   btn.addEventListener('click', function () {
-    if (win.classList.contains('on')) win.classList.remove('on'); else open();
+    if (win.classList.contains('on')) close(); else open();
   });
-  win.querySelector('#nyX').addEventListener('click', function () { win.classList.remove('on'); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') win.classList.remove('on'); });
+  win.querySelector('#nyX').addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && win.classList.contains('on')) close(); });
 
   function fallbackWindow() {
     var W = Math.min(440, window.innerWidth - 20), H = Math.min(680, window.innerHeight - 20);
