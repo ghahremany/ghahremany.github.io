@@ -1,39 +1,43 @@
-/* 🌐 دستیار هوشمند سایت — ویجت پشتیبانی
-   ظاهر هم‌سان قبلی (دکمهٔ گرد قرمز) ولی محتوا از سرور خودمان می‌آید:
-   https://negahbanyar.xo.je/widget.html  (هوش مصنوعی + دانشنامهٔ سایت)
-   چرا iframe؟ چون هاست، درخواست‌های بین‌دامنه‌ای را با چالش امنیتی رد می‌کند؛
-   داخل iframe همه‌چیز هم‌دامنه است و چالش خودکار حل می‌شود. */
+/* 🌐 دستیار هوشمند سایت — دکمهٔ پشتیبانی
+   ظاهر هم‌سان قبلی (دایرهٔ قرمز #E74266) ولی محتوا از سرور خودمان می‌آید.
+   نکتهٔ فنی: هاست، درخواست‌های بین‌دامنه‌ای را با چالش امنیتی (AES) رد می‌کند و
+   کوکی چالش در iframe (شخص‌ثالث) توسط مرورگر بلاک می‌شود؛ پس چت در یک پنجرهٔ
+   هم‌دامنه باز می‌شود که چالش خودکار حل شود. */
 (function () {
-  var SRC = 'https://negahbanyar.xo.je/widget.html';
-  var SMALL = 64, WIDE = 400, TALL = 600;
+  var URL = 'https://negahbanyar.xo.je/widget.html';
+  var SMALL = 64;
 
-  var f = document.createElement('iframe');
-  f.id = 'nyFrame';
-  f.src = SRC;
-  f.title = 'پشتیبانی هوشمند';
-  f.setAttribute('allowtransparency', 'true');
-  f.setAttribute('loading', 'lazy');
-  f.style.cssText = 'position:fixed;bottom:22px;right:22px;width:' + SMALL + 'px;height:' + SMALL + 'px;' +
-    'border:0;z-index:99999;border-radius:50%;overflow:hidden;background:transparent;' +
-    'transition:width .22s ease,height .22s ease,border-radius .22s ease;' +
-    'box-shadow:0 10px 26px rgba(231,66,102,.35)';
-  document.body.appendChild(f);
+  var b = document.createElement('button');
+  b.id = 'nyBtn';
+  b.type = 'button';
+  b.title = 'پشتیبانی هوشمند';
+  b.setAttribute('aria-label', 'پشتیبانی هوشمند');
+  b.innerHTML = '💬';
+  b.style.cssText = 'position:fixed;bottom:22px;right:22px;width:' + SMALL + 'px;height:' + SMALL + 'px;' +
+    'border-radius:50%;border:0;background:#E74266;color:#fff;font-size:28px;cursor:pointer;z-index:99999;' +
+    'display:grid;place-items:center;box-shadow:0 10px 26px rgba(231,66,102,.45);' +
+    'transition:transform .18s,box-shadow .18s';
+  b.addEventListener('mouseenter', function () {
+    b.style.transform = 'translateY(-2px) scale(1.04)';
+    b.style.boxShadow = '0 14px 32px rgba(231,66,102,.55)';
+  });
+  b.addEventListener('mouseleave', function () {
+    b.style.transform = 'none';
+    b.style.boxShadow = '0 10px 26px rgba(231,66,102,.45)';
+  });
 
-  function size(open) {
-    var w = Math.min(WIDE, window.innerWidth - 32);
-    var h = Math.min(TALL, window.innerHeight - 120);
-    f.style.width = (open ? w : SMALL) + 'px';
-    f.style.height = (open ? h : SMALL) + 'px';
-    f.style.borderRadius = open ? '18px' : '50%';
-    f.style.boxShadow = open ? '0 24px 60px rgba(10,30,45,.28)' : '0 10px 26px rgba(231,66,102,.35)';
-    try { f.contentWindow.postMessage({ ny: open ? 'opened' : 'closed' }, '*'); } catch (e) {}
-  }
-  window.addEventListener('message', function (e) {
-    var d = e.data || {};
-    if (d.ny === 'open') size(true);
-    else if (d.ny === 'close') size(false);
+  var w = null;
+  b.addEventListener('click', function () {
+    var W = Math.min(440, window.innerWidth - 20);
+    var H = Math.min(680, window.innerHeight - 20);
+    var left = Math.max(0, window.screenX + window.innerWidth - W - 30);
+    var top = Math.max(0, window.screenY + 60);
+    var feat = 'width=' + W + ',height=' + H + ',left=' + left + ',top=' + top +
+               ',menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes';
+    if (w && !w.closed) { w.focus(); return; }
+    w = window.open(URL, 'nySupport', feat);
+    if (!w) window.location.href = URL;   // اگر پاپ‌آپ بلاک شد، همان صفحه باز شود
   });
-  window.addEventListener('resize', function () {
-    if (f.style.borderRadius === '18px') size(true);
-  });
+
+  document.body.appendChild(b);
 })();
